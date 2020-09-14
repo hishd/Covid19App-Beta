@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		EF781859250F433900ED7CA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF781858250F433900ED7CA2 /* AppDelegate.swift */; };
 		EF78185B250F433900ED7CA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78185A250F433900ED7CA2 /* SceneDelegate.swift */; };
-		EF78185D250F433900ED7CA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78185C250F433900ED7CA2 /* ViewController.swift */; };
+		EF78185D250F433900ED7CA2 /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78185C250F433900ED7CA2 /* LoginViewContoller.swift */; };
 		EF781860250F433900ED7CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF78185E250F433900ED7CA2 /* Main.storyboard */; };
 		EF781862250F433F00ED7CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF781861250F433F00ED7CA2 /* Assets.xcassets */; };
 		EF781865250F433F00ED7CA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF781863250F433F00ED7CA2 /* LaunchScreen.storyboard */; };
+		EFADB9B1250F99D90045ED52 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */; };
+		EFADB9B8250FA7BB0045ED52 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B7250FA7BB0045ED52 /* RoundImageView.swift */; };
+		EFADB9BA250FC5810045ED52 /* TransparentNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B9250FC5810045ED52 /* TransparentNavController.swift */; };
+		EFADB9BC250FCB5A0045ED52 /* KeyboadToorbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9BB250FCB5A0045ED52 /* KeyboadToorbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EF781855250F433900ED7CA2 /* Covid19App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF781858250F433900ED7CA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF78185A250F433900ED7CA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EF78185C250F433900ED7CA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF78185C250F433900ED7CA2 /* LoginViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewContoller.swift; sourceTree = "<group>"; };
 		EF78185F250F433900ED7CA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF781861250F433F00ED7CA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF781864250F433F00ED7CA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF781866250F433F00ED7CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EFADB9B7250FA7BB0045ED52 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		EFADB9B9250FC5810045ED52 /* TransparentNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentNavController.swift; sourceTree = "<group>"; };
+		EFADB9BB250FCB5A0045ED52 /* KeyboadToorbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboadToorbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		EF781857250F433900ED7CA2 /* Covid19App */ = {
 			isa = PBXGroup;
 			children = (
+				EFADB9B2250FA0790045ED52 /* CustomViews */,
 				EF781858250F433900ED7CA2 /* AppDelegate.swift */,
 				EF78185A250F433900ED7CA2 /* SceneDelegate.swift */,
-				EF78185C250F433900ED7CA2 /* ViewController.swift */,
+				EF78185C250F433900ED7CA2 /* LoginViewContoller.swift */,
 				EF78185E250F433900ED7CA2 /* Main.storyboard */,
+				EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */,
 				EF781861250F433F00ED7CA2 /* Assets.xcassets */,
 				EF781863250F433F00ED7CA2 /* LaunchScreen.storyboard */,
 				EF781866250F433F00ED7CA2 /* Info.plist */,
 			);
 			path = Covid19App;
+			sourceTree = "<group>";
+		};
+		EFADB9B2250FA0790045ED52 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EFADB9B7250FA7BB0045ED52 /* RoundImageView.swift */,
+				EFADB9B9250FC5810045ED52 /* TransparentNavController.swift */,
+				EFADB9BB250FCB5A0045ED52 /* KeyboadToorbar.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +158,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF78185D250F433900ED7CA2 /* ViewController.swift in Sources */,
+				EFADB9B8250FA7BB0045ED52 /* RoundImageView.swift in Sources */,
+				EFADB9BC250FCB5A0045ED52 /* KeyboadToorbar.swift in Sources */,
+				EF78185D250F433900ED7CA2 /* LoginViewContoller.swift in Sources */,
 				EF781859250F433900ED7CA2 /* AppDelegate.swift in Sources */,
 				EF78185B250F433900ED7CA2 /* SceneDelegate.swift in Sources */,
+				EFADB9BA250FC5810045ED52 /* TransparentNavController.swift in Sources */,
+				EFADB9B1250F99D90045ED52 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
