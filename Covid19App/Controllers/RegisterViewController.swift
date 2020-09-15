@@ -11,15 +11,33 @@ import UIKit
 class RegisterViewController: UIViewController {
 
     @IBOutlet weak var imgProfilePic: UIImageView!
+    @IBOutlet weak var btnAcademicStaff: UIButton!
+    @IBOutlet weak var btnStudent: UIButton!
+    @IBOutlet weak var btnSignUp: UIButton!
+    
+    var userRole: String = "academic staff"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         imgProfilePic.generateRoundImageView()
-        // Do any additional setup after loading the view.
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        btnSignUp.generateRoundCorners(radius: 5)
     }
     
-
+    
+    @IBAction func userRoleChanged(_ sender: UIButton) {
+        btnStudent.isSelected = false
+        btnAcademicStaff.isSelected = false
+        sender.isSelected = true
+        if sender.currentTitle == "Academic Staff" {
+            userRole = "academic staff"
+        } else {
+            userRole = "student"
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

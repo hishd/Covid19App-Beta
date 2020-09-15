@@ -12,6 +12,7 @@ class LoginViewContoller: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var btnSignIn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,8 @@ class LoginViewContoller: UIViewController {
         
         txtEmail.delegate = self
         txtEmail.delegate = self
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        btnSignIn.generateRoundCorners(radius: 5)
         // Do any additional setup after loading the view.
     }
 

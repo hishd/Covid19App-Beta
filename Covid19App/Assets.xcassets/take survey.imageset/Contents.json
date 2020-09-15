@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "38054606355_26429c884f_b.jpg",
+      "filename" : "take survey.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "take survey@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "take survey@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
