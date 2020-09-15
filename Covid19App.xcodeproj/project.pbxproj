@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		EF275D782510A58500112668 /* AppPopUpDialogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF275D772510A58500112668 /* AppPopUpDialogs.swift */; };
 		EF275D7A2510ACD300112668 /* RoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF275D792510ACD300112668 /* RoundCornerButton.swift */; };
+		EF275D7C2510E6F900112668 /* CheckSympthomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF275D7B2510E6F900112668 /* CheckSympthomsViewController.swift */; };
+		EF275D7E2510EB8400112668 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF275D7D2510EB8400112668 /* NavBar.swift */; };
+		EF275D83251122BD00112668 /* StatBottomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF275D81251122BD00112668 /* StatBottomBarViewController.swift */; };
+		EF275D84251122BD00112668 /* StatBottomBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF275D82251122BD00112668 /* StatBottomBarViewController.xib */; };
+		EF56F157251151E500795F91 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56F155251151E500795F91 /* NewsCollectionViewCell.swift */; };
+		EF56F158251151E500795F91 /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF56F156251151E500795F91 /* NewsCollectionViewCell.xib */; };
 		EF781859250F433900ED7CA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF781858250F433900ED7CA2 /* AppDelegate.swift */; };
 		EF78185B250F433900ED7CA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78185A250F433900ED7CA2 /* SceneDelegate.swift */; };
 		EF78185D250F433900ED7CA2 /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78185C250F433900ED7CA2 /* LoginViewContoller.swift */; };
@@ -29,6 +35,12 @@
 /* Begin PBXFileReference section */
 		EF275D772510A58500112668 /* AppPopUpDialogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPopUpDialogs.swift; sourceTree = "<group>"; };
 		EF275D792510ACD300112668 /* RoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerButton.swift; sourceTree = "<group>"; };
+		EF275D7B2510E6F900112668 /* CheckSympthomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSympthomsViewController.swift; sourceTree = "<group>"; };
+		EF275D7D2510EB8400112668 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		EF275D81251122BD00112668 /* StatBottomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBottomBarViewController.swift; sourceTree = "<group>"; };
+		EF275D82251122BD00112668 /* StatBottomBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatBottomBarViewController.xib; sourceTree = "<group>"; };
+		EF56F155251151E500795F91 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF56F156251151E500795F91 /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF781855250F433900ED7CA2 /* Covid19App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF781858250F433900ED7CA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF78185A250F433900ED7CA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +112,7 @@
 				EFADB9B9250FC5810045ED52 /* TransparentNavController.swift */,
 				EFADB9BB250FCB5A0045ED52 /* KeyboadToorbar.swift */,
 				EF275D792510ACD300112668 /* RoundCornerButton.swift */,
+				EF275D7D2510EB8400112668 /* NavBar.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -131,7 +144,10 @@
 		EFBF9639250FED2F0019B78B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF275D82251122BD00112668 /* StatBottomBarViewController.xib */,
 				EF78185E250F433900ED7CA2 /* Main.storyboard */,
+				EF56F155251151E500795F91 /* NewsCollectionViewCell.swift */,
+				EF56F156251151E500795F91 /* NewsCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +160,8 @@
 				EFBF963B250FEDAE0019B78B /* HomeViewController.swift */,
 				EFBF963D250FEDD80019B78B /* UpdateViewController.swift */,
 				EFBF963F250FEE170019B78B /* SettingsViewController.swift */,
+				EF275D7B2510E6F900112668 /* CheckSympthomsViewController.swift */,
+				EF275D81251122BD00112668 /* StatBottomBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -207,7 +225,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF781865250F433F00ED7CA2 /* LaunchScreen.storyboard in Resources */,
+				EF275D84251122BD00112668 /* StatBottomBarViewController.xib in Resources */,
 				EF781862250F433F00ED7CA2 /* Assets.xcassets in Resources */,
+				EF56F158251151E500795F91 /* NewsCollectionViewCell.xib in Resources */,
 				EF781860250F433900ED7CA2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,13 +240,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFBF963E250FEDD80019B78B /* UpdateViewController.swift in Sources */,
+				EF275D7E2510EB8400112668 /* NavBar.swift in Sources */,
 				EF275D782510A58500112668 /* AppPopUpDialogs.swift in Sources */,
+				EF275D83251122BD00112668 /* StatBottomBarViewController.swift in Sources */,
 				EFBF9634250FDA950019B78B /* AppConstraints.swift in Sources */,
 				EFADB9B8250FA7BB0045ED52 /* RoundImageView.swift in Sources */,
 				EFADB9BC250FCB5A0045ED52 /* KeyboadToorbar.swift in Sources */,
+				EF56F157251151E500795F91 /* NewsCollectionViewCell.swift in Sources */,
 				EF78185D250F433900ED7CA2 /* LoginViewContoller.swift in Sources */,
 				EFBF9637250FDB6D0019B78B /* AppUserDefaults.swift in Sources */,
 				EF275D7A2510ACD300112668 /* RoundCornerButton.swift in Sources */,
+				EF275D7C2510E6F900112668 /* CheckSympthomsViewController.swift in Sources */,
 				EFBF963C250FEDAE0019B78B /* HomeViewController.swift in Sources */,
 				EF781859250F433900ED7CA2 /* AppDelegate.swift in Sources */,
 				EF78185B250F433900ED7CA2 /* SceneDelegate.swift in Sources */,

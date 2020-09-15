@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewsCollectionViewCellReusableIdentifier" id="gTV-IL-0wX" customClass="NewsCollectionViewCell" customModule="Covid19App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jy-pa-rru">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brw-E4-osh">
+                                <rect key="frame" x="69" y="64.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="180" id="5Ki-IR-IhO"/>
+                            <constraint firstAttribute="height" constant="150" id="XZa-m4-Wor"/>
+                            <constraint firstItem="Brw-E4-osh" firstAttribute="centerY" secondItem="1Jy-pa-rru" secondAttribute="centerY" id="fK7-xZ-JIe"/>
+                            <constraint firstItem="Brw-E4-osh" firstAttribute="centerX" secondItem="1Jy-pa-rru" secondAttribute="centerX" id="su7-nn-PSr"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1Jy-pa-rru" secondAttribute="bottom" id="2N2-xQ-6uf"/>
+                <constraint firstAttribute="trailing" secondItem="1Jy-pa-rru" secondAttribute="trailing" id="GPI-eZ-5zK"/>
+                <constraint firstItem="1Jy-pa-rru" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LSS-Xk-tPR"/>
+                <constraint firstItem="1Jy-pa-rru" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nm7-3J-prU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="180" height="150"/>
+            <connections>
+                <outlet property="lblNewsContent" destination="Brw-E4-osh" id="GvE-pe-Pan"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="158.03571428571428"/>
+        </collectionViewCell>
+    </objects>
+</document>

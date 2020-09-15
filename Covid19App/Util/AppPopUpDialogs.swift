@@ -24,7 +24,7 @@ class AppPopUpDialogs {
             action in
             
             if let news = alert.textFields?.first {
-                print(news.text)
+                print(news.text ?? "")
             }
             
         }))
