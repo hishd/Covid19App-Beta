@@ -85,7 +85,7 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout {
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         let size: CGSize = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        return CGSize(width: size.width, height: 30)
+        return CGSize(width: size.width, height: 120)
     }
     
 }

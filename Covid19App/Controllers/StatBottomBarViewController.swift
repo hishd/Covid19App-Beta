@@ -23,9 +23,10 @@ class StatBottomBarViewController: UIViewController {
         view.addGestureRecognizer(gesture)
         roundViews()
         
-        let tabBarHeight = self.tabBarController?.tabBar.frame.height ?? 0
+        let tabBarHeight = self.navigationController?.navigationBar.frame.height ?? 0
+        print(tabBarHeight)
         
-        partialViewYPosition = UIScreen.main.bounds.height - tabBarHeight - 160
+        partialViewYPosition = UIScreen.main.bounds.height - (UIScreen.main.bounds.height/6)
     }
     
     override func viewDidAppear(_ animated: Bool) {

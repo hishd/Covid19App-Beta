@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct Segues {
-    var loginToHomeController = "loginToHome"
+struct AppSegues {
+    static var loginToHomeController = "loginToHome"
+    static var updateToTakeSurvey = "updateToTakeSurvey"
 }
 
 struct UserInfoStorage {

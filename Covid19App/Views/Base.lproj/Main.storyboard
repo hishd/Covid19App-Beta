@@ -79,7 +79,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="H38-XV-f28" kind="show" id="2AZ-cq-89w"/>
+                                            <action selector="btnSignInClicked:" destination="1bf-1l-k53" eventType="touchUpInside" id="Ztw-wR-94V"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lu2-db-hL0">
@@ -173,7 +173,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ur6-Sk-TNW">
                                                 <rect key="frame" x="230" y="8" width="100" height="122.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AnA-mc-thn">
+                                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AnA-mc-thn">
                                                         <rect key="frame" x="0.0" y="0.5" width="100" height="99"/>
                                                         <color key="tintColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -296,7 +296,7 @@
                                                                             <constraint firstAttribute="width" constant="24" id="kgQ-xN-4U4"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxi-r1-4fZ">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxi-r1-4fZ">
                                                                         <rect key="frame" x="32" y="0.0" width="281" height="39"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -326,7 +326,7 @@
                                                                             <constraint firstAttribute="width" constant="24" id="2OX-Uw-Cum"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hV-dv-8x4">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter NIC no" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hV-dv-8x4">
                                                                         <rect key="frame" x="32" y="0.0" width="281" height="39"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -356,7 +356,7 @@
                                                                             <constraint firstAttribute="width" constant="24" id="je2-e5-8q4"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bT7-j3-fmh">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bT7-j3-fmh">
                                                                         <rect key="frame" x="32" y="0.0" width="281" height="39"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -386,7 +386,7 @@
                                                                             <constraint firstAttribute="width" constant="24" id="ZCG-1S-QSP"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWM-DZ-P3P">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWM-DZ-P3P">
                                                                         <rect key="frame" x="32" y="0.0" width="281" height="39"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -412,6 +412,9 @@
                                                         <state key="normal" title="Sign up">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="onSignUpPressed:" destination="zxu-a3-Ota" eventType="touchUpInside" id="TIf-x9-fVc"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -482,7 +485,12 @@
                         <outlet property="btnAcademicStaff" destination="t6J-lT-nBm" id="DVK-As-53c"/>
                         <outlet property="btnSignUp" destination="4iy-yO-jFF" id="M4d-I9-FdY"/>
                         <outlet property="btnStudent" destination="9nw-V0-TGy" id="jqQ-ch-KpF"/>
-                        <outlet property="imgProfilePic" destination="AnA-mc-thn" id="G94-2J-VVh"/>
+                        <outlet property="imgProfilePic" destination="AnA-mc-thn" id="NKc-75-6AN"/>
+                        <outlet property="txtConfirmPassword" destination="yWM-DZ-P3P" id="E6m-cz-hSE"/>
+                        <outlet property="txtEmail" destination="Cxi-r1-4fZ" id="3FY-Gn-Rve"/>
+                        <outlet property="txtNIC" destination="5hV-dv-8x4" id="4mN-ZX-pHw"/>
+                        <outlet property="txtName" destination="usp-70-3Ef" id="3PT-RK-hUf"/>
+                        <outlet property="txtPassword" destination="bT7-j3-fmh" id="o9h-zS-cS9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ra8-rn-Xg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -610,9 +618,6 @@
                                         <state key="normal" title="Logout">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="woc-ek-rha" kind="show" id="3p7-9b-XMX"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -672,7 +677,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dur-kJ-SOo">
                                 <rect key="frame" x="20" y="404" width="335" height="149.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check symptoms" translatesAutoresizingMaskIntoConstraints="NO" id="rYD-JU-1py">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check symptoms" translatesAutoresizingMaskIntoConstraints="NO" id="rYD-JU-1py">
                                         <rect key="frame" x="102.5" y="10" width="130" height="103"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="d3m-Va-Uaj"/>
@@ -772,8 +777,9 @@
                         <outlet property="btnUpdate" destination="md5-Sg-wUV" id="U2V-Af-BH4"/>
                         <outlet property="sliderTemprature" destination="eVe-io-D0u" id="d4L-W4-GKo"/>
                         <outlet property="txtTemp" destination="xL1-gB-ZV5" id="xax-ge-Ybk"/>
-                        <outlet property="viewCheckSymptoms" destination="Dur-kJ-SOo" id="reT-MM-DLE"/>
+                        <outlet property="viewCheckForSympthoms" destination="Dur-kJ-SOo" id="qbh-Td-CvP"/>
                         <outlet property="viewTempPicker" destination="wXV-cf-qEb" id="b7E-Be-NPE"/>
+                        <segue destination="woc-ek-rha" kind="show" identifier="updateToTakeSurvey" id="RWU-QF-aFD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBp-os-PTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1024,7 +1030,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jh8-Cx-iY2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3830" y="2141"/>
+            <point key="canvasLocation" x="3868" y="1339"/>
         </scene>
         <!--Home-->
         <scene sceneID="lmT-ji-9PV">
@@ -1035,8 +1041,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="odW-4z-iIW">
-                                <rect key="frame" x="0.0" y="96" width="375" height="150"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="tZP-MT-Nlu"/>
                                 </constraints>
@@ -1061,11 +1067,26 @@
                                     <outlet property="delegate" destination="XEh-ET-T5R" id="C5D-1c-mqm"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest news" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEh-ue-Bds">
+                                <rect key="frame" x="141.5" y="59" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-4F-vyk">
+                                <rect key="frame" x="16" y="240" width="343" height="378"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Y9b-4F-vyk" firstAttribute="top" secondItem="odW-4z-iIW" secondAttribute="bottom" constant="10" id="6un-hr-c1F"/>
+                            <constraint firstItem="odW-4z-iIW" firstAttribute="top" secondItem="MEh-ue-Bds" secondAttribute="bottom" id="Cji-JD-7aV"/>
+                            <constraint firstItem="MEh-ue-Bds" firstAttribute="centerX" secondItem="fKQ-69-j4e" secondAttribute="centerX" id="JIP-mP-TTF"/>
                             <constraint firstItem="odW-4z-iIW" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" id="Ndm-Wq-eqd"/>
-                            <constraint firstItem="odW-4z-iIW" firstAttribute="top" secondItem="yvS-Xa-fQB" secondAttribute="top" constant="52" id="hGU-Yc-IXL"/>
+                            <constraint firstItem="Y9b-4F-vyk" firstAttribute="bottom" secondItem="yvS-Xa-fQB" secondAttribute="bottom" id="SGy-EF-PXl"/>
+                            <constraint firstItem="yvS-Xa-fQB" firstAttribute="trailing" secondItem="Y9b-4F-vyk" secondAttribute="trailing" constant="16" id="Z6s-dh-sM2"/>
+                            <constraint firstItem="Y9b-4F-vyk" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" constant="16" id="dWA-kQ-feV"/>
+                            <constraint firstItem="MEh-ue-Bds" firstAttribute="top" secondItem="yvS-Xa-fQB" secondAttribute="top" constant="15" id="nGc-Oa-ohK"/>
                             <constraint firstItem="odW-4z-iIW" firstAttribute="trailing" secondItem="yvS-Xa-fQB" secondAttribute="trailing" id="wxP-JJ-G0H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yvS-Xa-fQB"/>
@@ -1121,9 +1142,6 @@
             <point key="canvasLocation" x="100" y="-136.28185907046478"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="y0n-J5-G7u"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="check symptoms" width="170.5" height="170.5"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
