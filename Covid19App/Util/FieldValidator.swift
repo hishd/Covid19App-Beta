@@ -26,7 +26,7 @@ class FieldValidator {
     }
     
     static func checkName(_ name: String) -> Bool{
-        let regEx = "[A-Za-z]{2,50}"
+        let regEx = "[A-Za-z ]{2,50}"
         let compRegex = NSPredicate(format: "SELF MATCHES %@", regEx)
         return compRegex.evaluate(with: name)
     }

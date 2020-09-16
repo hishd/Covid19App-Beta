@@ -32,5 +32,11 @@ class AppPopUpDialogs {
         return alert
     }
     
+    static func displayAlert(title: String, message : String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        return alert
+    }
+    
 }
 

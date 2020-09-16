@@ -20,9 +20,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var txtConfirmPassword: UITextField!
     @IBOutlet weak var imgProfilePic: UIImageView!
     
-    var userRole: String = "academic staff"
+    var userRole: String = UserTypes.USER_TYPE_STAFF
     
     var imagePicker: ImagePicker!
+    
+    var firebaseOP = FirebaseOP()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class RegisterViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         btnSignUp.generateRoundCorners(radius: 5)
         
+        firebaseOP.delegate = self
         setTFDelegates()
         
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
@@ -57,14 +60,14 @@ extension RegisterViewController {
         btnAcademicStaff.isSelected = false
         sender.isSelected = true
         if sender.currentTitle == "Academic Staff" {
-            userRole = "academic staff"
+            userRole = UserTypes.USER_TYPE_STAFF
         } else {
-            userRole = "student"
+            userRole = UserTypes.USER_TYPE_STUDENT
         }
     }
     
     @IBAction func onSignUpPressed(_ sender: Any) {
-        let name = txtName.text ?? ""
+        let name = txtName.text?.trimmingCharacters(in: .whitespaces) ?? ""
         let email = txtEmail.text ?? ""
         let nic = txtNIC.text ?? ""
         let pass = txtPassword.text ?? ""
@@ -102,6 +105,8 @@ extension RegisterViewController {
             return
         }
         
+        firebaseOP.signUpUser(name: name, email: email, nic: nic, password: pass, role: userRole, proPic: imgProfilePic.image)
+        
     }
     
     
@@ -110,7 +115,6 @@ extension RegisterViewController {
     }
     
 }
-
 
 extension RegisterViewController : UITextFieldDelegate {
     
@@ -138,5 +142,17 @@ extension RegisterViewController : ImagePickerDelegate {
         }
         
         self.imgProfilePic.image = image
+    }
+}
+
+extension RegisterViewController : FirebaseActions {
+    
+    func isUserSignUpSuccessful() {
+        self.present(AppPopUpDialogs.displayAlert(title: "Sign up successful", message: "Registration successful you can now login through login page."), animated: true)
+    }
+    
+    func isUserSignUpFailedwithError(error: Error) {
+        print(error)
+        self.present(AppPopUpDialogs.displayAlert(title: "Sign up error", message: error.localizedDescription), animated: true)
     }
 }

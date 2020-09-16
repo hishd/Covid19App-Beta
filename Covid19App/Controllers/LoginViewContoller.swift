@@ -14,9 +14,13 @@ class LoginViewContoller: UIViewController {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnSignIn: UIButton!
     
+    var firebaseOP = FirebaseOP()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.createTransparentNavBar()
+        
+        firebaseOP.delegate = self
         
         txtEmail.delegate = self
         txtPassword.delegate = self
@@ -45,6 +49,7 @@ extension LoginViewContoller {
             return
         }
         
+        firebaseOP.signInUser(email: email, pass: password)
         
     }
     
@@ -57,5 +62,16 @@ extension LoginViewContoller : UITextFieldDelegate {
         return true
     }
     
+}
+
+extension LoginViewContoller : FirebaseActions {
+    func isAuthenticationSuccessful(uid: String?) {
+        print(uid ?? "")
+    }
+    
+    func isAuthenticationFailedWithError(error: Error) {
+        print(error.localizedDescription)
+        self.present(AppPopUpDialogs.displayAlert(title: "Sign in error", message: error.localizedDescription), animated: true)
+    }
 }
 

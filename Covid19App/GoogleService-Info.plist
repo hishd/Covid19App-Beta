@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>698711190803-82qmhhooaa9ouu7pdav2rk0lo830jlkn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.698711190803-82qmhhooaa9ouu7pdav2rk0lo830jlkn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDxN7lbNBZOT9fBGkF_ud9as6Jd6jlA84Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>698711190803</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.hishd.Covid19App</string>
+	<key>PROJECT_ID</key>
+	<string>covidios-ef952</string>
+	<key>STORAGE_BUCKET</key>
+	<string>covidios-ef952.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:698711190803:ios:c77b330cc22456f50afee6</string>
+	<key>DATABASE_URL</key>
+	<string>https://covidios-ef952.firebaseio.com</string>
+</dict>
+</plist>
