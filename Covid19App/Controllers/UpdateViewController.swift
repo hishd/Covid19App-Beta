@@ -119,9 +119,6 @@ extension UpdateViewController {
     }
     
     func checkUserRoles(){
-        AppUserDefaults.setUserDefault(data: UserTypes.USER_TYPE_STAFF, key: UserInfoStorage.userType)
-        //        AppUserDefaults.removeUserDefault(key: UserInfoStorage.userType)
-        
         if let data : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userType){
             if data == UserTypes.USER_TYPE_STAFF {
                 setFloatingNewsButton()

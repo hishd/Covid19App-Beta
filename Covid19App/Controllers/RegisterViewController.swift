@@ -154,12 +154,18 @@ extension RegisterViewController : FirebaseActions {
     
     func isUserSignUpSuccessful() {
         progressHUD.dismissProgressHUD()
-        self.present(AppPopUpDialogs.displayAlert(title: "Sign up successful", message: "Registration successful you can now login through login page."), animated: true)
+        let alert = AppPopUpDialogs.displaySignInSuccessAlert(title: "Sign up successful", message: "Registration successful you can now login through login page.");
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+            action in
+            self.navigationController?.popToRootViewController(animated: true)
+        }))
+        self.present(alert, animated: true)
     }
     
     func isUserSignUpFailedwithError(error: Error) {
         progressHUD.dismissProgressHUD()
         print(error)
-        self.present(AppPopUpDialogs.displayAlert(title: "Sign up error", message: error.localizedDescription), animated: true)
+        self.present(AppPopUpDialogs.displayAlert(title: "Sign up error", message: error.localizedDescription), animated: true )
     }
 }

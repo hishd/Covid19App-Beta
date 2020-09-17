@@ -976,6 +976,9 @@
                                                 <state key="normal" title="Update Condition">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="updateClicked:" destination="woc-ek-rha" eventType="touchUpInside" id="NeQ-sw-3bV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1023,6 +1026,9 @@
                     <size key="freeformSize" width="375" height="770"/>
                     <connections>
                         <outlet property="btnUpdateCondition" destination="srx-mI-5Kh" id="gIN-5c-LvN"/>
+                        <outlet property="segmentCough" destination="ghy-Cb-kU7" id="JjE-m5-iXY"/>
+                        <outlet property="segmentSoreTroath" destination="MYD-cS-Zil" id="cnb-jH-FNY"/>
+                        <outlet property="segmentfever" destination="oms-Xi-6ev" id="JLY-mj-yfU"/>
                         <outlet property="viewContainerCough" destination="6ys-qb-mxG" id="mnh-P8-xIR"/>
                         <outlet property="viewContainerFever" destination="9Dl-Wv-qO5" id="807-Ez-PB8"/>
                         <outlet property="viewContainerSoreTroath" destination="fGe-l4-U8V" id="e6R-rU-lCs"/>

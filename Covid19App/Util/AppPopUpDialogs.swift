@@ -38,5 +38,10 @@ class AppPopUpDialogs {
         return alert
     }
     
+    static func displaySignInSuccessAlert(title: String, message : String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        return alert
+    }
+    
 }
 

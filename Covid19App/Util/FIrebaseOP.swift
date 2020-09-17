@@ -74,6 +74,33 @@ class FirebaseOP {
         }
     }
     
+    func storeSympthomsData(score: Int) {
+        let ref = getDBReference()
+        if let uid : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID), let name : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userName), let nic : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userNIC), let role : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userType) {
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            
+            let userdata = [
+                "score" : score,
+                "name" : name,
+                "nic" : nic,
+                "role" : role,
+                "date" : formatter.string(from: Date())
+                ] as [String : Any]
+            ref.child("userData").child(uid).setValue(userdata) {
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    self.delegate?.isSympthomsUpdateFailed(error: error)
+                } else {
+                    self.delegate?.isSympthomsUpdated()
+                }
+            }
+        } else {
+            self.delegate?.isSympthomsUpdateFailed(error: "Faild to update latest sympthoms")
+        }
+    }
+    
     //MARK: - Class methods
     
     func getDBReference() -> DatabaseReference{
@@ -145,6 +172,10 @@ protocol FirebaseActions {
     func isUserDataLoaded(user : UserModel)
     func isUserDataLoadFailed(error : Error)
     func isUserDataLoadFailed(error : String)
+    
+    func isSympthomsUpdated()
+    func isSympthomsUpdateFailed(error : Error)
+    func isSympthomsUpdateFailed(error : String)
 }
 
 extension FirebaseActions {
@@ -161,4 +192,10 @@ extension FirebaseActions {
     func isUserDataLoadFailed(error : Error) {}
     
     func isUserDataLoadFailed(error : String) {}
+    
+    func isSympthomsUpdated() {}
+    
+    func isSympthomsUpdateFailed(error : Error) {}
+    
+    func isSympthomsUpdateFailed(error : String) {}
 }
