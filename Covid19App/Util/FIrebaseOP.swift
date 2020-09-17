@@ -40,7 +40,7 @@ class FirebaseOP {
                                     "nic" : nic,
                                     "profileUrl" : "URL",
                                     "role" : role]
-//                    self.createUserInDB(data: userdata)
+                    //                    self.createUserInDB(data: userdata)
                     self.uploadProfilePicture(image: proPic, data: userdata)
                 }
             }
@@ -50,7 +50,7 @@ class FirebaseOP {
     //MARK: - Class methods
     
     func getDBReference() -> DatabaseReference{
-         return Database.database().reference()
+        return Database.database().reference()
     }
     
     func getStorageReference() -> StorageReference {
@@ -75,23 +75,46 @@ class FirebaseOP {
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpeg"
             
-            ref.child("user_images").putData(uploadData, metadata: metaData) {
+            ref.child("images/user_images/").child(data["email"]!).putData(uploadData, metadata: metaData) {
                 (meta, error) in
-                if let error = error {
-                    self.delegate?.isUserSignUpFailedwithError(error: error)
-                } else {
-                    ref.downloadURL(completion: {
-                        (url, error) in
-                        if let error = error {
-                            self.delegate?.isUserSignUpFailedwithError(error: error)
-                        } else {
-                            let imageUrl = url?.absoluteString
-                            var userData = data
-                            userData["profileUrl"] = imageUrl
-                            self.createUserInDB(data: userData)
-                        }
-                    })
-                }
+                
+                ref.child("images/user_images/").child(data["email"]!).downloadURL(completion: {
+                    (url,error) in
+                    guard let downloadURL = url else {
+                        let user = Auth.auth().currentUser
+                        
+                        user?.delete(completion: {
+                            error in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            }
+                        })
+                        
+                        return
+                    }
+                    
+                    let imageUrl = downloadURL.absoluteString
+                    var userData = data
+                    userData["profileUrl"] = imageUrl
+                    self.createUserInDB(data: userData)
+                    
+                })
+                
+                //                if let error = error {
+                //                    self.delegate?.isUserSignUpFailedwithError(error: error)
+                //                } else {
+                //                    ref.downloadURL(completion: {
+                //                        (url, error) in
+                //                        if let error = error {
+                //                            self.delegate?.isUserSignUpFailedwithError(error: error)
+                //                        } else {
+                //                            let imageUrl = url?.absoluteString
+                //                            var userData = data
+                //                            userData["profileUrl"] = imageUrl
+                //                            self.createUserInDB(data: userData)
+                //                        }
+                //                    })
+                //                }
             }
             
         }
