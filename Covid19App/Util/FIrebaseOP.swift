@@ -183,14 +183,64 @@ class FirebaseOP {
     
     func updatePassword(password : String){
         Auth.auth().currentUser?.updatePassword(to: password) { (error) in
-          if let error = error {
-              self.delegate?.isUpdateFailed(error: error)
-          } else {
-              self.delegate?.isEmailOrPasswordUpdated()
-          }
+            if let error = error {
+                self.delegate?.isUpdateFailed(error: error)
+            } else {
+                self.delegate?.isEmailOrPasswordUpdated()
+            }
         }
     }
     
+    func addTempData(uid: String, temperature: Double, lat: Double, lon: Double) {
+        let ref = self.getDBReference()
+        let data = [
+            "temperature" : temperature,
+            "lat" : lat,
+            "lon" : lon
+        ]
+        ref.child("temperatureData").child(uid).setValue(data) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                self.delegate?.isTempratureDataAddingFailed(error: error)
+            } else {
+                self.delegate?.isTempratureDataAdded()
+            }
+        }
+    }
+    
+    func loadNewsData(){
+        var news : [String] = []
+        let ref = self.getDBReference()
+        var initialRead = true
+        
+        ref.child("news").observe(.childAdded, with: {
+            snapshot in
+            if initialRead == false {
+                if let newsDict = snapshot.value as? [String : Any] {
+                    let data = newsDict["notification"] as! String
+                    news.append(data)
+                }
+                print(news)
+            }
+            
+        })
+        
+        ref.child("news").observeSingleEvent(of: .value, with: { snapshot in
+            
+            initialRead = false
+            
+            if let newsDict = snapshot.value as? [String: Any] {
+                for (_,value) in newsDict {
+                    guard let innerDict = value as? [String: Any] else {
+                        continue
+                    }
+                    news.append(innerDict["notification"] as! String)
+                }
+                print(news)
+            }
+        })
+//        self.delegate?.onNewsDataLoaded(news: news)
+    }
     
     //MARK: - Class methods
     
@@ -275,6 +325,11 @@ protocol FirebaseActions {
     
     func isNewNewsAdded()
     func isNewsAddingFailed(error: String)
+    
+    func isTempratureDataAdded()
+    func isTempratureDataAddingFailed(error: Error)
+    
+    func onNewsDataLoaded(news : [String])
 }
 
 extension FirebaseActions {
@@ -309,4 +364,10 @@ extension FirebaseActions {
     func isNewNewsAdded(){}
     
     func isNewsAddingFailed(error: String){}
+    
+    func isTempratureDataAdded() {}
+    
+    func isTempratureDataAddingFailed(error: Error) {}
+    
+    func onNewsDataLoaded(news : [String]) {}
 }

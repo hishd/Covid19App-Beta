@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreLocation
+
 
 class CheckSympthomsViewController: UIViewController {
     

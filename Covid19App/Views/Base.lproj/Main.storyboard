@@ -766,7 +766,7 @@
                                 <rect key="frame" x="20" y="84" width="335" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cMv-1R-0p5">
-                                        <rect key="frame" x="45.5" y="20" width="244.5" height="80"/>
+                                        <rect key="frame" x="40" y="20" width="255.5" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="take survey" translatesAutoresizingMaskIntoConstraints="NO" id="Nbi-12-l25">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -775,8 +775,8 @@
                                                     <constraint firstAttribute="height" constant="80" id="u4s-mZ-sFh"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body Temprature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-h0-OgT">
-                                                <rect key="frame" x="88" y="28" width="156.5" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-h0-OgT">
+                                                <rect key="frame" x="88" y="28" width="167.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -806,6 +806,9 @@
                                         <state key="normal" title="Update">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="temperatureUpdateClicked:" destination="AmC-iu-Moi" eventType="touchUpInside" id="dOx-Fa-Yww"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97639733549999996" green="0.92946499589999998" blue="0.97243398430000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

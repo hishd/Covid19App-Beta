@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionViewNews: UICollectionView!
     
+    let firebaseOP = FirebaseOP()
+    
     var names = ["Anders", "Kristian", "Sofia", "John", "Jenny", "Lina", "Annie", "Katie", "Johanna"]
         
     override func viewDidLoad() {
@@ -19,7 +21,7 @@ class HomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         addBottonStatView()
         registerNib()
-        
+        firebaseOP.loadNewsData()
     }
     
     func addBottonStatView() {

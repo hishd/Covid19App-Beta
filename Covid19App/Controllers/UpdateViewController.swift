@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class UpdateViewController: UIViewController {
     
@@ -15,9 +16,15 @@ class UpdateViewController: UIViewController {
     @IBOutlet weak var btnUpdate: UIButton!
     @IBOutlet weak var sliderTemprature: UISlider!
     @IBOutlet weak var viewCheckForSympthoms: UIView!
-//    @IBOutlet weak var viewCheckSympthoms: UIImageView!
+    //    @IBOutlet weak var viewCheckSympthoms: UIImageView!
     
-    var currentTemp = 28.0
+    let locationManager = CLLocationManager()
+    
+    var pickedLattitude: Double = 0
+    var pickedLonglitude: Double = 0
+    
+    var currentTemp : Double = 28
+    
     var Floatbtn = UIButton(type: .custom)
     
     let firebaseOP = FirebaseOP()
@@ -41,6 +48,32 @@ class UpdateViewController: UIViewController {
         self.viewCheckForSympthoms.addGestureRecognizer(gesture)
         
         checkUserRoles()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 200
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+    }
+    
+    @IBAction func temperatureUpdateClicked(_ sender: UIButton) {
+        
+        if pickedLattitude == 0 || pickedLonglitude == 0 {
+            
+            if let location = locationManager.location {
+                pickedLattitude = location.coordinate.latitude
+                pickedLonglitude = location.coordinate.longitude
+            }
+            
+        }
+        
+        currentTemp = Double(String(format: "%.1f", sliderTemprature.value))!
+        
+        progressHUD.displayProgressHUD()
+        
+        firebaseOP.addTempData(uid: AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID) ?? "", temperature: currentTemp, lat: pickedLattitude, lon: pickedLonglitude)
+        
     }
     
     /*
@@ -165,6 +198,7 @@ extension UpdateViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         Floatbtn.removeFromSuperview()
+//        self.locationManager.stopUpdatingLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -190,4 +224,29 @@ extension UpdateViewController : FirebaseActions {
         self.present(AppPopUpDialogs.displayAlert(title: "Publish failed", message: "Failed to publish new news"), animated: true)
     }
     
+    func isTempratureDataAdded() {
+        self.progressHUD.dismissProgressHUD()
+//        self.present(AppPopUpDialogs.displayAlert(title: "Data added", message: "Latest temperature data updated successfully"), animated: true)
+    }
+    
+    func isTempratureDataAddingFailed(error: Error) {
+        self.progressHUD.dismissProgressHUD()
+        self.present(AppPopUpDialogs.displayAlert(title: "Update Failed", message: error.localizedDescription), animated: true)
+    }
+}
+
+extension UpdateViewController : CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            pickedLattitude = location.coordinate.latitude
+            pickedLonglitude = location.coordinate.longitude
+            self.firebaseOP.addTempData(uid: AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID) ?? "", temperature: currentTemp, lat: pickedLattitude, lon: pickedLonglitude)
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        self.present(AppPopUpDialogs.displayAlert(title: "Location error", message: error.localizedDescription), animated: true)
+    }
+
 }
