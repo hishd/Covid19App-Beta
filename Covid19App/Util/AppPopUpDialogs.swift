@@ -43,5 +43,34 @@ class AppPopUpDialogs {
         return alert
     }
     
+    static func displayUserDataUpdatePopup(title: String, message: String, type : String) -> UIAlertController {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        if type == "NAME" {
+            alert.addTextField(configurationHandler: {
+                txtNewsContent in
+                txtNewsContent.placeholder = "Enter name here"
+            })
+        } else if type == "EMAIL" {
+            alert.addTextField(configurationHandler: {
+                txtNewsContent in
+                txtNewsContent.placeholder = "Enter email here"
+            })
+        } else if type == "PASSWORD" {
+            alert.addTextField(configurationHandler: {
+                txtNewsContent in
+                txtNewsContent.placeholder = "Enter password"
+            })
+            alert.addTextField(configurationHandler: {
+                txtNewsContent in
+                txtNewsContent.placeholder = "Re enter password"
+            })
+        }
+        
+        return alert
+    }
+    
 }
 

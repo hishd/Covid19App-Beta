@@ -15,10 +15,12 @@ class StatBottomBarViewController: UIViewController {
     @IBOutlet weak var viewTotalConfirmed: UIView!
     @IBOutlet weak var viewTotalPeople: UIView!
     @IBOutlet weak var viewNonInfected: UIView!
+    @IBOutlet weak var viewRoot: UIView!
+    @IBOutlet weak var viewRootSecond: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(panGesture))
         view.addGestureRecognizer(gesture)
         roundViews()

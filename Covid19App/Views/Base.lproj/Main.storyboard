@@ -717,6 +717,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="wrench" catalog="system" selectedImage="wrench.fill" id="8kY-64-I9g"/>
                     <connections>
+                        <outlet property="btnLogout" destination="JgW-jf-puB" id="Wi5-6g-MK2"/>
                         <outlet property="imgProfilePic" destination="oRC-eU-yL7" id="DA4-xe-Dbp"/>
                         <outlet property="txtEmail" destination="5Yy-1c-XCf" id="ZQU-v3-Hyc"/>
                         <outlet property="txtRole" destination="uLX-IW-fse" id="4Mb-KL-VN4"/>

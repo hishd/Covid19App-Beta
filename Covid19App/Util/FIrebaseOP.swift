@@ -101,6 +101,39 @@ class FirebaseOP {
         }
     }
     
+    func updateProfilePicture(image : UIImage?, email : String, uid : String){
+        if let uploadData = image?.jpegData(compressionQuality: 0.5) {
+            let ref = getStorageReference()
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            ref.child("images/user_images/").child(email).putData(uploadData, metadata: metaData) {
+                (meta, error) in
+                
+                ref.child("images/user_images/").child(email).downloadURL(completion: {
+                    (url,error) in
+                    guard let downloadURL = url else {
+                        self.delegate?.isUpdateFailed(error: "Failed to update profile picture")
+                        return
+                    }
+                    
+                    let dbRef = self.getDBReference()
+                    dbRef.child("users").child(uid).child("profileUrl").setValue(downloadURL.absoluteString){
+                        (error:Error?, ref:DatabaseReference) in
+                        if let error = error {
+                            self.delegate?.isUpdateFailed(error: error)
+                        } else {
+                            self.delegate?.isUpdateSuccess()
+                        }
+                    }
+                })
+                
+            }
+            
+        }
+    }
+    
+    
     //MARK: - Class methods
     
     func getDBReference() -> DatabaseReference{
@@ -176,6 +209,10 @@ protocol FirebaseActions {
     func isSympthomsUpdated()
     func isSympthomsUpdateFailed(error : Error)
     func isSympthomsUpdateFailed(error : String)
+    
+    func isUpdateSuccess()
+    func isUpdateFailed(error : Error)
+    func isUpdateFailed(error : String)
 }
 
 extension FirebaseActions {
@@ -198,4 +235,10 @@ extension FirebaseActions {
     func isSympthomsUpdateFailed(error : Error) {}
     
     func isSympthomsUpdateFailed(error : String) {}
+    
+    func isUpdateSuccess() {}
+    
+    func isUpdateFailed(error : Error) {}
+    
+    func isUpdateFailed(error : String) {}
 }
