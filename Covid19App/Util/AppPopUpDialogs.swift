@@ -61,10 +61,12 @@ class AppPopUpDialogs {
         } else if type == "PASSWORD" {
             alert.addTextField(configurationHandler: {
                 txtNewsContent in
+                txtNewsContent.isSecureTextEntry = true
                 txtNewsContent.placeholder = "Enter password"
             })
             alert.addTextField(configurationHandler: {
                 txtNewsContent in
+                txtNewsContent.isSecureTextEntry = true
                 txtNewsContent.placeholder = "Re enter password"
             })
         }

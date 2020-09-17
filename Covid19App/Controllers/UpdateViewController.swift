@@ -20,7 +20,8 @@ class UpdateViewController: UIViewController {
     var currentTemp = 28.0
     var Floatbtn = UIButton(type: .custom)
     
-
+    let firebaseOP = FirebaseOP()
+    var progressHUD : ProgressHUD!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,10 @@ class UpdateViewController: UIViewController {
         viewCheckForSympthoms.clipsToBounds = true
         viewCheckForSympthoms.layer.cornerRadius = 10
         btnUpdate.generateRoundCorners(radius: 5)
+        
+        firebaseOP.delegate = self
+        
+        progressHUD = ProgressHUD(view: view)
         
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.launchSurveyController))
         
@@ -115,7 +120,35 @@ extension UpdateViewController {
     
     @objc
     func onFloatingNewsButtonPressed(){
-        self.present(AppPopUpDialogs.generateCreateNewsPopup(), animated: true)
+        let alert = AppPopUpDialogs.displayUserDataUpdatePopup(title: "Add news", message: "Enter news content to publish", type: "EMAIL")
+        
+        let action = UIAlertAction(title: "Submit", style: .default, handler: {
+            action in
+            if let news = alert.textFields?.first {
+                if let news = news.text {
+                    self.progressHUD.displayProgressHUD()
+                    self.firebaseOP.publishNews(news: news)
+                }
+            }
+        })
+        action.isEnabled = false;
+        alert.addAction(action)
+        
+        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: alert.textFields?.first, queue: OperationQueue.main, using: {
+            notification in
+            
+            if FieldValidator.isEmpty(alert.textFields?.first?.text ?? "") {
+                action.isEnabled = false
+                
+                alert.message = "Enter a valid news"
+            } else {
+                action.isEnabled = true
+                alert.message = "Click on add to submit"
+            }
+            
+        })
+        
+        self.present(alert, animated: true)
     }
     
     func checkUserRoles(){
@@ -141,6 +174,20 @@ extension UpdateViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+    }
+    
+}
+
+extension UpdateViewController : FirebaseActions {
+    
+    func isNewNewsAdded() {
+        self.progressHUD.dismissProgressHUD()
+        self.present(AppPopUpDialogs.displayAlert(title: "News added", message: "New news published successfully"), animated: true)
+    }
+    
+    func isNewsAddingFailed(error: String) {
+        self.progressHUD.dismissProgressHUD()
+        self.present(AppPopUpDialogs.displayAlert(title: "Publish failed", message: "Failed to publish new news"), animated: true)
     }
     
 }

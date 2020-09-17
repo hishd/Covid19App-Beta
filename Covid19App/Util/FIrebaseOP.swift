@@ -133,6 +133,64 @@ class FirebaseOP {
         }
     }
     
+    func publishNews(news : String){
+        let ref = self.getDBReference()
+        guard let key = ref.child("news").childByAutoId().key else {
+            self.delegate?.isNewsAddingFailed(error : "Failed to generate news")
+            return
+        }
+        ref.child("news").child(key).child("notification").setValue(news) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                self.delegate?.isNewsAddingFailed(error : error.localizedDescription)
+            } else {
+                self.delegate?.isNewNewsAdded()
+            }
+        }
+    }
+    
+    func updateUserName(name : String, uid : String){
+        let ref = self.getDBReference()
+        ref.child("users").child(uid).child("name").setValue(name) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                self.delegate?.isUpdateFailed(error: error)
+            } else {
+                AppUserDefaults.setUserDefault(data: name, key: UserInfoStorage.userName)
+                self.delegate?.isUpdateSuccess()
+            }
+        }
+    }
+    
+    func updateUserEmail(email : String, uid : String){
+        Auth.auth().currentUser?.updateEmail(to: email) { (error) in
+            if let error = error {
+                self.delegate?.isUpdateFailed(error: error)
+            } else {
+                let ref = self.getDBReference()
+                ref.child("users").child(uid).child("email").setValue(email) {
+                    (error:Error?, ref:DatabaseReference) in
+                    if let error = error {
+                        self.delegate?.isUpdateFailed(error: error)
+                    } else {
+                        AppUserDefaults.setUserDefault(data: email, key: UserInfoStorage.userEmail)
+                        self.delegate?.isEmailOrPasswordUpdated()
+                    }
+                }
+            }
+        }
+    }
+    
+    func updatePassword(password : String){
+        Auth.auth().currentUser?.updatePassword(to: password) { (error) in
+          if let error = error {
+              self.delegate?.isUpdateFailed(error: error)
+          } else {
+              self.delegate?.isEmailOrPasswordUpdated()
+          }
+        }
+    }
+    
     
     //MARK: - Class methods
     
@@ -213,6 +271,10 @@ protocol FirebaseActions {
     func isUpdateSuccess()
     func isUpdateFailed(error : Error)
     func isUpdateFailed(error : String)
+    func isEmailOrPasswordUpdated()
+    
+    func isNewNewsAdded()
+    func isNewsAddingFailed(error: String)
 }
 
 extension FirebaseActions {
@@ -241,4 +303,10 @@ extension FirebaseActions {
     func isUpdateFailed(error : Error) {}
     
     func isUpdateFailed(error : String) {}
+    
+    func isEmailOrPasswordUpdated(){}
+    
+    func isNewNewsAdded(){}
+    
+    func isNewsAddingFailed(error: String){}
 }

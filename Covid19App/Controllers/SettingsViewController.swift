@@ -55,7 +55,10 @@ extension SettingsViewController {
         let action = UIAlertAction(title: "Update", style: .default, handler: {
             action in
             if let name = alert.textFields?.first {
-                
+                if let name = name.text{
+                    self.progressHUD.displayProgressHUD()
+                    self.firebaseOP.updateUserName(name: name, uid: AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID) ?? "")
+                }
             }
         })
         action.isEnabled = false;
@@ -70,7 +73,7 @@ extension SettingsViewController {
                 alert.message = "Enter a valid name"
             } else {
                 action.isEnabled = true
-                alert.message = "Click update to submit"
+                alert.message = "Click on update to submit"
             }
             
         })
@@ -78,25 +81,71 @@ extension SettingsViewController {
         self.present(alert, animated: true)
     }
     @IBAction func changeEmailClicked(_ sender: UIButton) {
-        let alert = AppPopUpDialogs.displayUserDataUpdatePopup(title: "Update Email", message: "Enter new email to update", type: "EMAIL")
-        alert.addAction(UIAlertAction(title: "Update", style: .default, handler: {
+        let alert = AppPopUpDialogs.displayUserDataUpdatePopup(title: "Update Email", message: "Enter new email to update\n*This requires a re sigin to the application", type: "EMAIL")
+        
+        let action = UIAlertAction(title: "Update", style: .default, handler: {
             action in
             if let email = alert.textFields?.first {
+                if let email = email.text{
+                    self.progressHUD.displayProgressHUD()
+                    self.firebaseOP.updateUserEmail(email: email, uid: AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID) ?? "")
+                }
+            }
+        })
+        action.isEnabled = false;
+        alert.addAction(action)
+        
+        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: alert.textFields?.first, queue: OperationQueue.main, using: {
+            notification in
+            
+            if !FieldValidator.isValidEmail(alert.textFields?.first?.text ?? "") {
+                action.isEnabled = false
                 
+                alert.message = "Enter a valid email"
+            } else {
+                action.isEnabled = true
+                alert.message = "Click on update to submit.\n*This operation requires a re sigin to the application"
             }
             
-        }))
+        })
+        
         self.present(alert, animated: true)
     }
     @IBAction func changePasswordClicked(_ sender: UIButton) {
         let alert = AppPopUpDialogs.displayUserDataUpdatePopup(title: "Update Password", message: "Enter new password to update", type: "PASSWORD")
-        alert.addAction(UIAlertAction(title: "Update", style: .default, handler: {
+        
+        let action = UIAlertAction(title: "Update", style: .default, handler: {
             action in
-            if let pass = alert.textFields?.first, let confirmPass = alert.textFields?.last {
+            if let pass = alert.textFields?.first{
+                if let pass = pass.text{
+                    self.progressHUD.displayProgressHUD()
+                    self.firebaseOP.updatePassword(password: pass)
+                }
+            }
+        })
+        action.isEnabled = false;
+        alert.addAction(action)
+        
+        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: alert.textFields?.last, queue: OperationQueue.main, using: {
+            notification in
+            
+            if !FieldValidator.checkLength(alert.textFields?.last?.text ?? "", 6){
+                action.isEnabled = false
                 
+                alert.message = "Enter a valid password containing minimum 6 characters for both fields"
+            } else {
+                
+                if alert.textFields?.first?.text ?? "" != alert.textFields?.last?.text ?? "" {
+                    alert.message = "Passwords dont match " + String(alert.textFields?.count ?? 0)
+                } else {
+                    action.isEnabled = true
+                    alert.message = "Click on update to submit.\n*This operation requires a re sigin to the application"
+                }
+
             }
             
-        }))
+        })
+        
         self.present(alert, animated: true)
     }
     @IBAction func viewSurveyResultsClicked(_ sender: UIButton) {
@@ -149,6 +198,8 @@ extension SettingsViewController : FirebaseActions {
     func isUpdateSuccess() {
         progressHUD.dismissProgressHUD()
         self.present(AppPopUpDialogs.displayAlert(title: "Update Successful", message: "Data updated successfully."), animated: true)
+        self.txtEmail.text = AppUserDefaults.getUserDefault(key: UserInfoStorage.userEmail)
+        txtUserName.text = AppUserDefaults.getUserDefault(key: UserInfoStorage.userName)
     }
     
     func isUpdateFailed(error: Error) {
@@ -161,6 +212,12 @@ extension SettingsViewController : FirebaseActions {
         progressHUD.dismissProgressHUD()
         print(error)
         self.present(AppPopUpDialogs.displayAlert(title: "Error updating data", message: error), animated: true)
+    }
+    
+    func isEmailOrPasswordUpdated() {
+        AppUserDefaults.clearUserData()
+        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 }
