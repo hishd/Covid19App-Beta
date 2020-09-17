@@ -11,6 +11,8 @@ import Foundation
 struct AppSegues {
     static var loginToHomeController = "loginToHome"
     static var updateToTakeSurvey = "updateToTakeSurvey"
+    static var splashToHome = "splashToHome"
+    static var splashToLogin = "splashToLogin"
 }
 
 struct UserInfoStorage {

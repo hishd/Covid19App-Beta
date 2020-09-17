@@ -26,6 +26,7 @@
 		EF7B9DBA251333930064073C /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B9DB9251333930064073C /* ProgressHUD.swift */; };
 		EF7B9DBC251336A80064073C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B9DBB251336A80064073C /* UserModel.swift */; };
 		EF7F2CB22511ED840051B0B7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7F2CB12511ED840051B0B7 /* ImagePicker.swift */; };
+		EF8400FE251381EE0075226B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8400FD251381EE0075226B /* SplashViewController.swift */; };
 		EFAB888B2511FD5F00675118 /* FIrebaseOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB888A2511FD5F00675118 /* FIrebaseOP.swift */; };
 		EFADB9B1250F99D90045ED52 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */; };
 		EFADB9B8250FA7BB0045ED52 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B7250FA7BB0045ED52 /* RoundImageView.swift */; };
@@ -62,6 +63,7 @@
 		EF7B9DB9251333930064073C /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		EF7B9DBB251336A80064073C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		EF7F2CB12511ED840051B0B7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		EF8400FD251381EE0075226B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = Covid19App/Constraints/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
 		EFAB888A2511FD5F00675118 /* FIrebaseOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseOP.swift; sourceTree = "<group>"; };
 		EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EFADB9B7250FA7BB0045ED52 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		EFBF963A250FED3B0019B78B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EF8400FD251381EE0075226B /* SplashViewController.swift */,
 				EF78185C250F433900ED7CA2 /* LoginViewContoller.swift */,
 				EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */,
 				EFBF963B250FEDAE0019B78B /* HomeViewController.swift */,
@@ -341,6 +344,7 @@
 				EFBF9637250FDB6D0019B78B /* AppUserDefaults.swift in Sources */,
 				EF275D7A2510ACD300112668 /* RoundCornerButton.swift in Sources */,
 				EF275D7C2510E6F900112668 /* CheckSympthomsViewController.swift in Sources */,
+				EF8400FE251381EE0075226B /* SplashViewController.swift in Sources */,
 				EFBF963C250FEDAE0019B78B /* HomeViewController.swift in Sources */,
 				EF781859250F433900ED7CA2 /* AppDelegate.swift in Sources */,
 				EF7B9DBA251333930064073C /* ProgressHUD.swift in Sources */,

@@ -58,6 +58,6 @@ class AppUserDefaults {
         UserDefaults.standard.removeObject(forKey: UserInfoStorage.userEmail)
         UserDefaults.standard.removeObject(forKey: UserInfoStorage.userType)
         UserDefaults.standard.removeObject(forKey: UserInfoStorage.proPicURL)
-        UserDefaults.standard.removeObject(forKey: UserInfoStorage.userLogged)
+        UserDefaults.standard.set(false, forKey: UserInfoStorage.userLogged)
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uuS-Nv-vR5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Zc-lU-m8e">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -154,7 +154,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcT-t4-4b9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039.2" y="-136.28185907046478"/>
+            <point key="canvasLocation" x="2030" y="-603"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="6EG-xx-Z9d">
+            <objects>
+                <viewController id="jS8-Cw-j8i" customClass="SplashViewController" customModule="Covid19App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ors-RR-MLT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="giM-nc-wne">
+                                <rect key="frame" x="114.5" y="233.5" width="146.5" height="200"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="LwS-c3-Ich">
+                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="150.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Covid Safe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="chn-eQ-zni">
+                                        <rect key="frame" x="0.0" y="166.5" width="146.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="giM-nc-wne" firstAttribute="centerX" secondItem="ors-RR-MLT" secondAttribute="centerX" id="RXC-nI-N6L"/>
+                            <constraint firstItem="giM-nc-wne" firstAttribute="centerY" secondItem="ors-RR-MLT" secondAttribute="centerY" id="xyq-12-hoh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="veJ-kk-lB2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J2l-uu-LH2"/>
+                    <connections>
+                        <segue destination="1bf-1l-k53" kind="show" identifier="splashToLogin" id="g92-Re-33l"/>
+                        <segue destination="H38-XV-f28" kind="show" identifier="splashToHome" id="1L2-EQ-EIG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iOL-XF-M4H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136.8" y="-136.28185907046478"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="JYm-Zm-YGV">
@@ -495,7 +535,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ra8-rn-Xg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="681"/>
+            <point key="canvasLocation" x="1396" y="796"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Ggo-7p-YbO">
@@ -508,7 +548,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HBa-Su-JXK">
                                 <rect key="frame" x="255" y="64" width="100" height="122.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oRC-eU-yL7">
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oRC-eU-yL7">
                                         <rect key="frame" x="0.0" y="0.5" width="100" height="99"/>
                                         <color key="tintColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -577,6 +617,9 @@
                                                 <state key="normal" title="Change">
                                                     <color key="titleColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="chaneNameClicked:" destination="m2L-Kh-iP1" eventType="touchUpInside" id="gwt-0A-ui5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -594,6 +637,9 @@
                                                 <state key="normal" title="Change">
                                                     <color key="titleColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="changeEmailClicked:" destination="m2L-Kh-iP1" eventType="touchUpInside" id="3cX-Xh-D05"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -602,12 +648,18 @@
                                         <state key="normal" title="Change Password">
                                             <color key="titleColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changePasswordClicked:" destination="m2L-Kh-iP1" eventType="touchUpInside" id="H4v-My-g7b"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrI-1i-jY1">
                                         <rect key="frame" x="20" y="180" width="155" height="30"/>
                                         <state key="normal" title="View survey results">
                                             <color key="titleColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="viewSurveyResultsClicked:" destination="m2L-Kh-iP1" eventType="touchUpInside" id="mz4-oC-w6b"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgW-jf-puB">
                                         <rect key="frame" x="137.5" y="366" width="100" height="30"/>
@@ -618,6 +670,9 @@
                                         <state key="normal" title="Logout">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="logoutClicked:" destination="m2L-Kh-iP1" eventType="touchUpInside" id="210-Jq-bza"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -661,10 +716,16 @@
                         <viewLayoutGuide key="safeArea" id="zJO-t7-ACO"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="wrench" catalog="system" selectedImage="wrench.fill" id="8kY-64-I9g"/>
+                    <connections>
+                        <outlet property="imgProfilePic" destination="oRC-eU-yL7" id="DA4-xe-Dbp"/>
+                        <outlet property="txtEmail" destination="5Yy-1c-XCf" id="ZQU-v3-Hyc"/>
+                        <outlet property="txtRole" destination="uLX-IW-fse" id="4Mb-KL-VN4"/>
+                        <outlet property="txtUserName" destination="oNd-Dt-ub3" id="qrX-RX-1hA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytm-ml-ZTw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3081.1594202898555" y="1292.4107142857142"/>
+            <point key="canvasLocation" x="2247" y="882"/>
         </scene>
         <!--Update-->
         <scene sceneID="UDs-pm-vS1">
@@ -784,7 +845,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBp-os-PTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3493.5999999999999" y="536.58170914542734"/>
+            <point key="canvasLocation" x="3361" y="881"/>
         </scene>
         <!--Check Sympthoms View Controller-->
         <scene sceneID="fpp-TG-UzY">
@@ -1036,7 +1097,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jh8-Cx-iY2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3868" y="1339"/>
+            <point key="canvasLocation" x="3361" y="1777"/>
         </scene>
         <!--Home-->
         <scene sceneID="lmT-ji-9PV">
@@ -1104,7 +1165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wat-bs-CDj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3493.5999999999999" y="-129.08545727136433"/>
+            <point key="canvasLocation" x="4432.8000000000002" y="-129.08545727136433"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Rr2-uz-LNj">
@@ -1126,28 +1187,30 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zs-U9-s5f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2541" y="206"/>
+            <point key="canvasLocation" x="2975" y="-129"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Yak-GD-ahI">
+        <scene sceneID="hRh-fJ-b82">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uuS-Nv-vR5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Zc-lU-m8e" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bOz-8Q-t1j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5fe-Ec-bCw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="1bf-1l-k53" kind="relationship" relationship="rootViewController" id="bnP-bi-Qkw"/>
+                        <segue destination="jS8-Cw-j8i" kind="relationship" relationship="rootViewController" id="BJv-Iu-Iy3"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U89-uZ-fMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nbr-Pv-CZ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="-136.28185907046478"/>
+            <point key="canvasLocation" x="197.59999999999999" y="-136.28185907046478"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1L2-EQ-EIG"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="check symptoms" width="170.5" height="170.5"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
