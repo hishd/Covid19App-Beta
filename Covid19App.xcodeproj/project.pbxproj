@@ -23,6 +23,8 @@
 		EF781860250F433900ED7CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF78185E250F433900ED7CA2 /* Main.storyboard */; };
 		EF781862250F433F00ED7CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF781861250F433F00ED7CA2 /* Assets.xcassets */; };
 		EF781865250F433F00ED7CA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF781863250F433F00ED7CA2 /* LaunchScreen.storyboard */; };
+		EF7B9DBA251333930064073C /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B9DB9251333930064073C /* ProgressHUD.swift */; };
+		EF7B9DBC251336A80064073C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B9DBB251336A80064073C /* UserModel.swift */; };
 		EF7F2CB22511ED840051B0B7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7F2CB12511ED840051B0B7 /* ImagePicker.swift */; };
 		EFAB888B2511FD5F00675118 /* FIrebaseOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB888A2511FD5F00675118 /* FIrebaseOP.swift */; };
 		EFADB9B1250F99D90045ED52 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */; };
@@ -57,6 +59,8 @@
 		EF781861250F433F00ED7CA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF781864250F433F00ED7CA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF781866250F433F00ED7CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF7B9DB9251333930064073C /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		EF7B9DBB251336A80064073C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		EF7F2CB12511ED840051B0B7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EFAB888A2511FD5F00675118 /* FIrebaseOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseOP.swift; sourceTree = "<group>"; };
 		EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				EF606A062511DF0700D5DCBF /* FieldValidator.swift */,
 				EF7F2CB12511ED840051B0B7 /* ImagePicker.swift */,
 				EFAB888A2511FD5F00675118 /* FIrebaseOP.swift */,
+				EF7B9DB9251333930064073C /* ProgressHUD.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 		EFBF9638250FED1D0019B78B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EF7B9DBB251336A80064073C /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				EFBF9634250FDA950019B78B /* AppConstraints.swift in Sources */,
 				EFADB9B8250FA7BB0045ED52 /* RoundImageView.swift in Sources */,
 				EFADB9BC250FCB5A0045ED52 /* KeyboadToorbar.swift in Sources */,
+				EF7B9DBC251336A80064073C /* UserModel.swift in Sources */,
 				EF56F157251151E500795F91 /* NewsCollectionViewCell.swift in Sources */,
 				EF78185D250F433900ED7CA2 /* LoginViewContoller.swift in Sources */,
 				EFAB888B2511FD5F00675118 /* FIrebaseOP.swift in Sources */,
@@ -336,6 +343,7 @@
 				EF275D7C2510E6F900112668 /* CheckSympthomsViewController.swift in Sources */,
 				EFBF963C250FEDAE0019B78B /* HomeViewController.swift in Sources */,
 				EF781859250F433900ED7CA2 /* AppDelegate.swift in Sources */,
+				EF7B9DBA251333930064073C /* ProgressHUD.swift in Sources */,
 				EF78185B250F433900ED7CA2 /* SceneDelegate.swift in Sources */,
 				EFADB9BA250FC5810045ED52 /* TransparentNavController.swift in Sources */,
 				EF7F2CB22511ED840051B0B7 /* ImagePicker.swift in Sources */,

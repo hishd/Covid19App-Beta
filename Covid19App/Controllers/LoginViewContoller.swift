@@ -16,6 +16,8 @@ class LoginViewContoller: UIViewController {
     
     var firebaseOP = FirebaseOP()
     
+    var progressHUD : ProgressHUD!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.createTransparentNavBar()
@@ -26,6 +28,9 @@ class LoginViewContoller: UIViewController {
         txtPassword.delegate = self
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         btnSignIn.generateRoundCorners(radius: 5)
+        
+        progressHUD = ProgressHUD(view: view)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -50,7 +55,7 @@ extension LoginViewContoller {
         }
         
         firebaseOP.signInUser(email: email, pass: password)
-        
+        progressHUD.displayProgressHUD()
     }
     
 }
@@ -67,11 +72,30 @@ extension LoginViewContoller : UITextFieldDelegate {
 extension LoginViewContoller : FirebaseActions {
     func isAuthenticationSuccessful(uid: String?) {
         print(uid ?? "")
+        firebaseOP.getUserData(uid: uid)
     }
     
     func isAuthenticationFailedWithError(error: Error) {
+        progressHUD.dismissProgressHUD()
         print(error.localizedDescription)
         self.present(AppPopUpDialogs.displayAlert(title: "Sign in error", message: error.localizedDescription), animated: true)
     }
+    
+    func isUserDataLoaded(user: UserModel) {
+        progressHUD.dismissProgressHUD()
+        AppUserDefaults.saveUserData(user: user)
+        performSegue(withIdentifier: AppSegues.loginToHomeController, sender: nil)
+    }
+    
+    func isUserDataLoadFailed(error: Error) {
+        progressHUD.dismissProgressHUD()
+        self.present(AppPopUpDialogs.displayAlert(title: "Sign in error", message: error.localizedDescription), animated: true)
+    }
+    
+    func isUserDataLoadFailed(error: String) {
+        progressHUD.dismissProgressHUD()
+        self.present(AppPopUpDialogs.displayAlert(title: "Sign in error", message: error), animated: true)
+    }
 }
+
 

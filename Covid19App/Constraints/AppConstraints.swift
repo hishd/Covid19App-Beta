@@ -14,11 +14,13 @@ struct AppSegues {
 }
 
 struct UserInfoStorage {
+    static var userUID = "USER_UID"
     static var userEmail = "USER_EMAIL"
     static var userName = "USER_NAME"
     static var userNIC = "USER_NIC"
     static var userType = "USER_TYPE"
     static var userLogged = "USER_LOGGED"
+    static var proPicURL = "PROFILE_PICTURE_URL"
 }
 
 struct UserTypes {

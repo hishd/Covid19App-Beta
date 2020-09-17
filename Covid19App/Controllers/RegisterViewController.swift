@@ -19,14 +19,14 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
     @IBOutlet weak var imgProfilePic: UIImageView!
-    
-    let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-    
+        
     var userRole: String = UserTypes.USER_TYPE_STAFF
     
     var imagePicker: ImagePicker!
     
     var firebaseOP = FirebaseOP()
+    
+    var progressHUD : ProgressHUD!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +38,11 @@ class RegisterViewController: UIViewController {
         firebaseOP.delegate = self
         setTFDelegates()
         
+        self.progressHUD = ProgressHUD(view: view)
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.onPickImageClicked))
         self.imgProfilePic.addGestureRecognizer(gesture)
         
-        activityIndicator.backgroundColor = UIColor.systemGray4
-        activityIndicator.layer.cornerRadius = 10
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = UIActivityIndicatorView.Style.large
     }
     
     /*
@@ -114,25 +110,13 @@ extension RegisterViewController {
         }
         
         firebaseOP.signUpUser(name: name, email: email, nic: nic, password: pass, role: userRole, proPic: imgProfilePic.image)
-        startIndicatorView()
+        progressHUD.displayProgressHUD()
         
     }
     
     
     @objc func onPickImageClicked(_ sender: UIImageView){
         self.imagePicker.present(from: sender)
-    }
-    
-    func startIndicatorView(){
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-        view.isUserInteractionEnabled = false
-    }
-    
-    func stopIndicatorView() {
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
-        view.isUserInteractionEnabled = true
     }
     
 }
@@ -169,12 +153,12 @@ extension RegisterViewController : ImagePickerDelegate {
 extension RegisterViewController : FirebaseActions {
     
     func isUserSignUpSuccessful() {
-        stopIndicatorView()
+        progressHUD.dismissProgressHUD()
         self.present(AppPopUpDialogs.displayAlert(title: "Sign up successful", message: "Registration successful you can now login through login page."), animated: true)
     }
     
     func isUserSignUpFailedwithError(error: Error) {
-        stopIndicatorView()
+        progressHUD.dismissProgressHUD()
         print(error)
         self.present(AppPopUpDialogs.displayAlert(title: "Sign up error", message: error.localizedDescription), animated: true)
     }

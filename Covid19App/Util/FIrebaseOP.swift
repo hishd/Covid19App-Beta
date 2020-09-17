@@ -47,6 +47,33 @@ class FirebaseOP {
         })
     }
     
+    func getUserData(uid : String?) {
+        let ref = getDBReference()
+        if let uid = uid {
+            ref.child("users").child(uid).observeSingleEvent(of: .value, with: {
+                (snapshot) in
+                
+                if let userDict = snapshot.value as? [String:String] {
+                    self.delegate?.isUserDataLoaded(
+                        user: UserModel(
+                            email: userDict["email"]!,
+                            name: userDict["name"]!,
+                            nic: userDict["nic"]!,
+                            profileUrl: userDict["profileUrl"]!,
+                            role: userDict["role"]!,
+                            uid: userDict["uid"]!)
+                    )
+                }  else {
+                    self.delegate?.isUserDataLoadFailed(error: "Failed to retrieve usee data")
+                }
+            }) { (error) in
+                self.delegate?.isUserDataLoadFailed(error: error)
+            }
+        } else {
+            self.delegate?.isUserDataLoadFailed(error: "Failed to retrieve usee data")
+        }
+    }
+    
     //MARK: - Class methods
     
     func getDBReference() -> DatabaseReference{
@@ -59,7 +86,7 @@ class FirebaseOP {
     
     func createUserInDB(data: Dictionary<String, String>){
         let ref = self.getDBReference()
-        ref.child("users").child(data["role"] ?? "defaultRole").child(data["uid"] ?? "defaultUid").setValue(data) {
+        ref.child("users").child(data["uid"] ?? "defaultUid").setValue(data) {
             (error:Error?, ref:DatabaseReference) in
             if let error = error {
                 self.delegate?.isUserSignUpFailedwithError(error: error)
@@ -100,21 +127,6 @@ class FirebaseOP {
                     
                 })
                 
-                //                if let error = error {
-                //                    self.delegate?.isUserSignUpFailedwithError(error: error)
-                //                } else {
-                //                    ref.downloadURL(completion: {
-                //                        (url, error) in
-                //                        if let error = error {
-                //                            self.delegate?.isUserSignUpFailedwithError(error: error)
-                //                        } else {
-                //                            let imageUrl = url?.absoluteString
-                //                            var userData = data
-                //                            userData["profileUrl"] = imageUrl
-                //                            self.createUserInDB(data: userData)
-                //                        }
-                //                    })
-                //                }
             }
             
         }
@@ -129,22 +141,24 @@ protocol FirebaseActions {
     
     func isUserSignUpSuccessful()
     func isUserSignUpFailedwithError(error: Error)
+    
+    func isUserDataLoaded(user : UserModel)
+    func isUserDataLoadFailed(error : Error)
+    func isUserDataLoadFailed(error : String)
 }
 
 extension FirebaseActions {
-    func isAuthenticationSuccessful(uid: String?){
-        
-    }
+    func isAuthenticationSuccessful(uid: String?){}
     
-    func isAuthenticationFailedWithError(error: Error){
-        
-    }
+    func isAuthenticationFailedWithError(error: Error){}
     
-    func isUserSignUpSuccessful(){
-        
-    }
+    func isUserSignUpSuccessful(){}
     
-    func isUserSignUpFailedwithError(error: Error){
-        
-    }
+    func isUserSignUpFailedwithError(error: Error){}
+    
+    func isUserDataLoaded(user : UserModel) {}
+    
+    func isUserDataLoadFailed(error : Error) {}
+    
+    func isUserDataLoadFailed(error : String) {}
 }

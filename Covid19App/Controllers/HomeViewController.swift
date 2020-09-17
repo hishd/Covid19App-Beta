@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         addBottonStatView()
         registerNib()
+        
     }
     
     func addBottonStatView() {
