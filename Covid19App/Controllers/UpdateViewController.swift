@@ -246,6 +246,11 @@ extension UpdateViewController : CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
+            
+            if AppUserDefaults.getUserDefault(key: UserInfoStorage.userLogged) == false {
+                self.locationManager.stopUpdatingLocation()
+            }
+            
             pickedLattitude = location.coordinate.latitude
             pickedLonglitude = location.coordinate.longitude
             self.firebaseOP.addTempData(uid: AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID) ?? "", temperature: currentTemp, lat: pickedLattitude, lon: pickedLonglitude)
