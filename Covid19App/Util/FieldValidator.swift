@@ -6,6 +6,12 @@
 //  Copyright © 2020 Hishara. All rights reserved.
 //
 
+/*
+ 
+    Class which will be used to validate the textfield data
+ 
+ */
+
 import Foundation
 
 class FieldValidator {

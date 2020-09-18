@@ -31,10 +31,7 @@ class StatBottomBarViewController: UIViewController {
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(panGesture))
         view.addGestureRecognizer(gesture)
         roundViews()
-        
-        let tabBarHeight = self.navigationController?.navigationBar.frame.height ?? 0
-        print(tabBarHeight)
-        
+                
         partialViewYPosition = UIScreen.main.bounds.height - (UIScreen.main.bounds.height/6)
     }
     
@@ -87,18 +84,6 @@ class StatBottomBarViewController: UIViewController {
         viewNonInfected.clipsToBounds = true
         viewNonInfected.layer.cornerRadius = 10
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension StatBottomBarViewController{

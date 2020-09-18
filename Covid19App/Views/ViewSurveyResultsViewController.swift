@@ -26,6 +26,10 @@ class ViewSurveyResultsViewController: UIViewController {
         firebaseOP.fetchSurveyData()
         progressHUD.displayProgressHUD()
     }
+
+}
+
+extension ViewSurveyResultsViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -54,7 +58,7 @@ class ViewSurveyResultsViewController: UIViewController {
             tblData.reloadData()
         }
     }
-
+    
 }
 
 extension ViewSurveyResultsViewController : UITableViewDataSource {
@@ -85,7 +89,6 @@ extension ViewSurveyResultsViewController : UITableViewDelegate {
 
 extension ViewSurveyResultsViewController : FirebaseActions {
     func loadSurveyData(data: [SurveyDataModel]) {
-        print(data)
         progressHUD.dismissProgressHUD()
         surveyData.removeAll()
         surveyData.append(contentsOf: data)

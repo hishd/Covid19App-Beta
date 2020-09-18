@@ -6,6 +6,12 @@
 //  Copyright © 2020 Hishara. All rights reserved.
 //
 
+/*
+ 
+    A class which will create a progress HUD and returns an instance
+ 
+ */
+
 import Foundation
 import UIKit
 

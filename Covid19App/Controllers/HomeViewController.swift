@@ -202,8 +202,7 @@ extension HomeViewController : FirebaseActions {
         self.tempData.removeAll()
         self.mapKit.removeAnnotations(mapKit.annotations)
         self.tempData.append(contentsOf: tempData)
-        print("Latest Update====== \n")
-        print(self.tempData)
+
         self.refreshMapData()
     }
     

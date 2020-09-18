@@ -31,7 +31,6 @@ class LoginViewContoller: UIViewController {
         
         progressHUD = ProgressHUD(view: view)
         
-        // Do any additional setup after loading the view.
     }
 
 }
@@ -71,7 +70,6 @@ extension LoginViewContoller : UITextFieldDelegate {
 
 extension LoginViewContoller : FirebaseActions {
     func isAuthenticationSuccessful(uid: String?) {
-        print(uid ?? "")
         firebaseOP.getUserData(uid: uid)
     }
     

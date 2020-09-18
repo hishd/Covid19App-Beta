@@ -73,7 +73,7 @@
 		EF8400FD251381EE0075226B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = Covid19App/Constraints/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
 		EF8E9A5B2514703500C9C505 /* TemperatureDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureDataModel.swift; sourceTree = "<group>"; };
 		EF8E9A5D2514852B00C9C505 /* CustomMapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapMarker.swift; sourceTree = "<group>"; };
-		EF8E9A5F2514B7AE00C9C505 /* FullMapViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullMapViewViewController.swift; path = Covid19App/Views/FullMapViewViewController.swift; sourceTree = SOURCE_ROOT; };
+		EF8E9A5F2514B7AE00C9C505 /* FullMapViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullMapViewViewController.swift; path = Covid19App/Controllers/FullMapViewViewController.swift; sourceTree = SOURCE_ROOT; };
 		EF8E9A612514C68800C9C505 /* ViewSurveyResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewSurveyResultsViewController.swift; path = Covid19App/Views/ViewSurveyResultsViewController.swift; sourceTree = SOURCE_ROOT; };
 		EF8E9A632514C9BC00C9C505 /* SurveyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SurveyCell.swift; path = Covid19App/Views/SurveyCell.swift; sourceTree = SOURCE_ROOT; };
 		EF8E9A642514C9BC00C9C505 /* SurveyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SurveyCell.xib; path = Covid19App/Views/SurveyCell.xib; sourceTree = SOURCE_ROOT; };
@@ -216,9 +216,9 @@
 		EFBF963A250FED3B0019B78B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EF8E9A5F2514B7AE00C9C505 /* FullMapViewViewController.swift */,
 				EF8E9A632514C9BC00C9C505 /* SurveyCell.swift */,
 				EF8E9A612514C68800C9C505 /* ViewSurveyResultsViewController.swift */,
-				EF8E9A5F2514B7AE00C9C505 /* FullMapViewViewController.swift */,
 				EF8400FD251381EE0075226B /* SplashViewController.swift */,
 				EF78185C250F433900ED7CA2 /* LoginViewContoller.swift */,
 				EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */,

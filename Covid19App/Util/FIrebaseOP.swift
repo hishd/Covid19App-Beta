@@ -6,6 +6,12 @@
 //  Copyright © 2020 Hishara. All rights reserved.
 //
 
+/*
+ 
+    Class which will enable the app to connect with the firebase realtime database and cloud storage
+ 
+ */
+
 import Foundation
 import Firebase
 import FirebaseStorage
@@ -13,6 +19,8 @@ import FirebaseStorage
 class FirebaseOP {
     
     var delegate: FirebaseActions?
+    
+    //MARK: - User Sign in
     
     func signInUser(email: String, pass: String){
         Auth.auth().signIn(withEmail: email, password: pass, completion: {
@@ -26,6 +34,8 @@ class FirebaseOP {
             
         })
     }
+    
+    //MARK: - User Sign up
     
     func signUpUser(name: String, email: String, nic: String, password: String, role: String, proPic: UIImage?) {
         Auth.auth().createUser(withEmail: email, password: password, completion: {
@@ -46,6 +56,8 @@ class FirebaseOP {
             }
         })
     }
+    
+    //MARK: - Get user data after a successful sign in
     
     func getUserData(uid : String?) {
         let ref = getDBReference()
@@ -74,6 +86,8 @@ class FirebaseOP {
         }
     }
     
+    //MARK: - Push the survey data to DB
+    
     func storeSympthomsData(score: Int) {
         let ref = getDBReference()
         if let uid : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID), let name : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userName), let nic : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userNIC), let role : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userType), let proURL : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.proPicURL) {
@@ -101,6 +115,8 @@ class FirebaseOP {
             self.delegate?.isSympthomsUpdateFailed(error: "Faild to update latest sympthoms")
         }
     }
+    
+    //MARK: - Update the existing profile picture of user
     
     func updateProfilePicture(image : UIImage?, email : String, uid : String){
         if let uploadData = image?.jpegData(compressionQuality: 0.5) {
@@ -134,6 +150,8 @@ class FirebaseOP {
         }
     }
     
+    //MARK: - Publish a new news and store in DB
+    
     func publishNews(news : String){
         let ref = self.getDBReference()
         guard let key = ref.child("news").childByAutoId().key else {
@@ -150,6 +168,8 @@ class FirebaseOP {
         }
     }
     
+    //MARK: - Update the user name on DB
+    
     func updateUserName(name : String, uid : String){
         let ref = self.getDBReference()
         ref.child("users").child(uid).child("name").setValue(name) {
@@ -162,6 +182,8 @@ class FirebaseOP {
             }
         }
     }
+    
+    //MARK: - Update the user email in DB and update authentication details
     
     func updateUserEmail(email : String, uid : String){
         Auth.auth().currentUser?.updateEmail(to: email) { (error) in
@@ -182,6 +204,8 @@ class FirebaseOP {
         }
     }
     
+    //MARK: - Update the user password in DB and update authentication details
+    
     func updatePassword(password : String){
         Auth.auth().currentUser?.updatePassword(to: password) { (error) in
             if let error = error {
@@ -191,6 +215,8 @@ class FirebaseOP {
             }
         }
     }
+    
+    //MARK: - Push latest temperature data to DB
     
     func addTempData(uid: String, temperature: Double, lat: Double, lon: Double) {
         let ref = self.getDBReference()
@@ -216,6 +242,8 @@ class FirebaseOP {
         }
     }
     
+    //MARK: - Fetch new news data
+    
     func loadNewsData(){
         var news : [String] = []
         let ref = self.getDBReference()
@@ -228,7 +256,6 @@ class FirebaseOP {
                     let data = newsDict["notification"] as! String
                     news.append(data)
                 }
-                print(news)
                 self.delegate?.onNewsDataLoaded(news: news)
             }
             
@@ -245,12 +272,12 @@ class FirebaseOP {
                     }
                     news.append(innerDict["notification"] as! String)
                 }
-                print(news)
                 self.delegate?.onNewsDataLoaded(news: news)
             }
         })
-//        self.delegate?.onNewsDataLoaded(news: news)
     }
+    
+    //MARK: - Fetch latest temperature data
     
     func fetchTemperatureData(){
         var tempData : [TemperatureDataModel] = []
@@ -258,11 +285,9 @@ class FirebaseOP {
         
         ref.child("temperatureData").observeSingleEvent(of: .value, with: {
             (snapshot) in
-//                print(snapshot)
             tempData.removeAll()
             if let tempDict = snapshot.value as? [String: Any] {
                 for data in tempDict {
-//                        print(data)
                     guard let innerData = data.value as? [String : Any] else {
                         continue
                     }
@@ -275,11 +300,9 @@ class FirebaseOP {
         ref.child("temperatureData").observe(.childChanged, with: { snapshot in
             ref.child("temperatureData").observeSingleEvent(of: .value, with: {
                 (snapshot) in
-//                print(snapshot)
                 tempData.removeAll()
                 if let tempDict = snapshot.value as? [String: Any] {
                     for data in tempDict {
-//                        print(data)
                         guard let innerData = data.value as? [String : Any] else {
                             continue
                         }
@@ -290,6 +313,8 @@ class FirebaseOP {
             })
         })
     }
+    
+    //MARK: - Fetch survey data
     
     func fetchSurveyData(){
         var surveyData : [SurveyDataModel] = []
@@ -315,14 +340,25 @@ class FirebaseOP {
     
     
     //MARK: - Class methods
+    //
+    // Will used to communinicate inside the class itself
+    //
+    //
+    //
+    
+    //MARK: - Retrieve the realtime database reference
     
     func getDBReference() -> DatabaseReference{
         return Database.database().reference()
     }
     
+    //MARK: - Retrieve the storage reference
+    
     func getStorageReference() -> StorageReference {
         return Storage.storage().reference()
     }
+    
+    //MARK: - Add user data to realtime DB
     
     func createUserInDB(data: Dictionary<String, String>){
         let ref = self.getDBReference()
@@ -335,6 +371,8 @@ class FirebaseOP {
             }
         }
     }
+    
+    //MARK: - Upload profile picture and grab the download URL
     
     func uploadProfilePicture(image: UIImage?, data: Dictionary<String, String>){
         if let uploadData = image?.jpegData(compressionQuality: 0.5) {
@@ -375,41 +413,55 @@ class FirebaseOP {
 }
 
 
+//MARK: - Firebase Action Delegates
+
 protocol FirebaseActions {
+    
+    //Authentication callbacks
     func isAuthenticationSuccessful(uid: String?)
     func isAuthenticationFailedWithError(error: Error)
     
+    //User signup callbacks
     func isUserSignUpSuccessful()
     func isUserSignUpFailedwithError(error: Error)
     
+    //Load userdata callbacks
     func isUserDataLoaded(user : UserModel)
     func isUserDataLoadFailed(error : Error)
     func isUserDataLoadFailed(error : String)
     
+    //Update sympthoms data calbacks
     func isSympthomsUpdated()
     func isSympthomsUpdateFailed(error : Error)
     func isSympthomsUpdateFailed(error : String)
     
+    //Update operation callbacks such as updating username, passwords, images etc.
     func isUpdateSuccess()
     func isUpdateFailed(error : Error)
     func isUpdateFailed(error : String)
     func isEmailOrPasswordUpdated()
     
+    //Add new news callbacks
     func isNewNewsAdded()
     func isNewsAddingFailed(error: String)
     
+    //Add temperature data callbacks
     func isTempratureDataAdded()
     func isTempratureDataAddingFailed(error: Error)
     
+    //Load latest news data callbacks
     func onNewsDataLoaded(news : [String])
     
+    //Load latest temperature data callbacks
     func onTempDataLoaded(tempData : [TemperatureDataModel])
     
+    //Load latest survey data callbacks
     func loadSurveyData(data : [SurveyDataModel])
     func loadSurveyDataFailed(error: String)
 
 }
 
+//Extensions for the delegate methods
 extension FirebaseActions {
     func isAuthenticationSuccessful(uid: String?){}
     

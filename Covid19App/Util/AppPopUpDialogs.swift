@@ -6,6 +6,12 @@
 //  Copyright © 2020 Hishara. All rights reserved.
 //
 
+/*
+ 
+    Class which will create popup dialogs and return the isntances
+ 
+ */
+
 import Foundation
 import UIKit
 
@@ -23,9 +29,9 @@ class AppPopUpDialogs {
         alert.addAction(UIAlertAction(title: "Update", style: .default, handler: {
             action in
             
-            if let news = alert.textFields?.first {
-                print(news.text ?? "")
-            }
+//            if let news = alert.textFields?.first {
+//                print(news.text ?? "")
+//            }
             
         }))
         

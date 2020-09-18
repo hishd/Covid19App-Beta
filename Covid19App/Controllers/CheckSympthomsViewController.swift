@@ -19,11 +19,7 @@ class CheckSympthomsViewController: UIViewController {
     @IBOutlet weak var segmentCough: UISegmentedControl!
     @IBOutlet weak var segmentfever: UISegmentedControl!
     @IBOutlet weak var segmentSoreTroath: UISegmentedControl!
-    
-//    let locationManager = CLLocationManager()
-//
-//    var pickedLattitude: Double = 0
-//    var pickedLonglitude: Double = 0
+
     
     let scoreScale = [1,2,3]
     
@@ -46,16 +42,10 @@ class CheckSympthomsViewController: UIViewController {
         firebaseOP.delegate = self
         progressHUD = ProgressHUD(view: view)
         
-//        locationManager.delegate = self
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.distanceFilter = 200
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startUpdatingLocation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.generateGrayBackButton()
-//        self.locationManager.stopUpdatingLocation()
     }
 
     
@@ -68,21 +58,6 @@ class CheckSympthomsViewController: UIViewController {
     }
     
 }
-
-//extension CheckSympthomsViewController : CLLocationManagerDelegate {
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let location = locations.last {
-//            pickedLattitude = location.coordinate.latitude
-//            pickedLonglitude = location.coordinate.longitude
-//        }
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        self.present(AppPopUpDialogs.displayAlert(title: "Location error", message: error.localizedDescription), animated: true)
-//    }
-//
-//}
 
 extension CheckSympthomsViewController : FirebaseActions {
     

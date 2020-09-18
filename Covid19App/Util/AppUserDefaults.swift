@@ -6,6 +6,12 @@
 //  Copyright © 2020 Hishara. All rights reserved.
 //
 
+/*
+ 
+    Class which will enable the application to store data which will be used for login etc.
+ 
+ */
+
 import Foundation
 
 class AppUserDefaults {

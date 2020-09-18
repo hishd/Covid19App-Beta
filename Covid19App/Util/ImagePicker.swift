@@ -6,6 +6,12 @@
 //  Copyright © 2020 Hishara. All rights reserved.
 //
 
+/*
+ 
+    Custom class which extends on the UIImagepicker inorder to help picking the images inside the local storage of the device
+ 
+ */
+
 import UIKit
 
 public protocol ImagePickerDelegate: class {

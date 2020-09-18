@@ -107,8 +107,6 @@ extension FullMapViewViewController : FirebaseActions {
         self.tempData.removeAll()
         self.mapView.removeAnnotations(mapView.annotations)
         self.tempData.append(contentsOf: tempData)
-        print("Latest Update====== \n")
-        print(self.tempData)
         self.refreshMapData()
     }
     
