@@ -9,6 +9,7 @@
 import Foundation
 
 struct SurveyDataModel {
+    var dateString: Date?
     var date: String
     var name: String
     var nic: String

@@ -158,6 +158,15 @@ extension HomeViewController : UICollectionViewDataSource {
         self.present(AppPopUpDialogs.displayAlert(title: "News", message: news[indexPath.row]), animated: true)
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+      cell.alpha = 0
+      cell.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+      UIView.animate(withDuration: 0.25) {
+        cell.alpha = 1
+        cell.transform = .identity
+      }
+    }
+    
 }
 
 extension HomeViewController : UICollectionViewDelegateFlowLayout {

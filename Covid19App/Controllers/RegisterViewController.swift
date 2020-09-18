@@ -158,7 +158,7 @@ extension RegisterViewController : FirebaseActions {
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
             action in
-            self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }))
         self.present(alert, animated: true)
     }

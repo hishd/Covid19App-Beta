@@ -873,8 +873,8 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2D5-hu-nnZ">
                                         <rect key="frame" x="78.333333333333343" y="0.0" width="181.00000000000003" height="32"/>
                                         <segments>
+                                            <segment title="Severity"/>
                                             <segment title="Latest Data"/>
-                                            <segment title="severity"/>
                                         </segments>
                                         <connections>
                                             <action selector="selectedFilterChanged:" destination="qUx-Bc-koL" eventType="valueChanged" id="niX-ry-iaU"/>
@@ -1172,7 +1172,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="odW-4z-iIW">
-                                <rect key="frame" x="0.0" y="124" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="tZP-MT-Nlu"/>
@@ -1199,7 +1199,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest news" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEh-ue-Bds">
-                                <rect key="frame" x="141.66666666666666" y="103" width="92" height="21"/>
+                                <rect key="frame" x="141.66666666666666" y="93" width="92" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1208,7 +1208,7 @@
                                 <rect key="frame" x="16" y="284" width="343" height="445"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpL-qw-fYp">
-                                <rect key="frame" x="25" y="294" width="25" height="25"/>
+                                <rect key="frame" x="25" y="309" width="25" height="25"/>
                                 <color key="backgroundColor" red="0.42416077246283046" green="0.44193415485457194" blue="0.45421557741116758" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="dJh-v6-PXr"/>
@@ -1221,7 +1221,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-jX-xqF">
-                                <rect key="frame" x="25" y="327" width="25" height="25"/>
+                                <rect key="frame" x="25" y="342" width="25" height="25"/>
                                 <color key="backgroundColor" red="0.43241919584949923" green="0.45053862654729199" blue="0.46305916878172593" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="bVh-Rg-RFU"/>
@@ -1233,21 +1233,29 @@
                                     <segue destination="4Tb-dm-IU2" kind="show" id="7TW-YZ-am0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heat map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bo-gb-Pn9">
+                                <rect key="frame" x="300" y="263" width="59" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="BjM-jX-xqF" firstAttribute="top" secondItem="EpL-qw-fYp" secondAttribute="bottom" constant="8" id="6La-1W-FNb"/>
-                            <constraint firstItem="Y9b-4F-vyk" firstAttribute="top" secondItem="odW-4z-iIW" secondAttribute="bottom" constant="10" id="6un-hr-c1F"/>
+                            <constraint firstItem="Y9b-4F-vyk" firstAttribute="top" secondItem="odW-4z-iIW" secondAttribute="bottom" constant="20" id="6un-hr-c1F"/>
                             <constraint firstItem="odW-4z-iIW" firstAttribute="top" secondItem="MEh-ue-Bds" secondAttribute="bottom" id="Cji-JD-7aV"/>
-                            <constraint firstItem="EpL-qw-fYp" firstAttribute="top" secondItem="odW-4z-iIW" secondAttribute="bottom" constant="20" id="GlF-ca-xaK"/>
+                            <constraint firstItem="EpL-qw-fYp" firstAttribute="top" secondItem="odW-4z-iIW" secondAttribute="bottom" constant="45" id="GlF-ca-xaK"/>
                             <constraint firstItem="MEh-ue-Bds" firstAttribute="centerX" secondItem="fKQ-69-j4e" secondAttribute="centerX" id="JIP-mP-TTF"/>
                             <constraint firstItem="odW-4z-iIW" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" id="Ndm-Wq-eqd"/>
                             <constraint firstItem="Y9b-4F-vyk" firstAttribute="bottom" secondItem="yvS-Xa-fQB" secondAttribute="bottom" id="SGy-EF-PXl"/>
                             <constraint firstItem="yvS-Xa-fQB" firstAttribute="trailing" secondItem="Y9b-4F-vyk" secondAttribute="trailing" constant="16" id="Z6s-dh-sM2"/>
                             <constraint firstItem="EpL-qw-fYp" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" constant="25" id="ZbH-GI-SBA"/>
                             <constraint firstItem="BjM-jX-xqF" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" constant="25" id="cYb-CA-GIq"/>
+                            <constraint firstItem="yvS-Xa-fQB" firstAttribute="trailing" secondItem="2Bo-gb-Pn9" secondAttribute="trailing" constant="16" id="ch9-7I-9ea"/>
                             <constraint firstItem="Y9b-4F-vyk" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" constant="16" id="dWA-kQ-feV"/>
-                            <constraint firstItem="MEh-ue-Bds" firstAttribute="top" secondItem="yvS-Xa-fQB" secondAttribute="top" constant="15" id="nGc-Oa-ohK"/>
+                            <constraint firstItem="MEh-ue-Bds" firstAttribute="top" secondItem="yvS-Xa-fQB" secondAttribute="top" constant="5" id="nGc-Oa-ohK"/>
+                            <constraint firstItem="Y9b-4F-vyk" firstAttribute="top" secondItem="2Bo-gb-Pn9" secondAttribute="bottom" constant="5" id="o45-EH-oJd"/>
                             <constraint firstItem="odW-4z-iIW" firstAttribute="trailing" secondItem="yvS-Xa-fQB" secondAttribute="trailing" id="wxP-JJ-G0H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yvS-Xa-fQB"/>
@@ -1262,7 +1270,7 @@
             </objects>
             <point key="canvasLocation" x="4430" y="-137"/>
         </scene>
-        <!--Full Map View View Controller-->
+        <!--Heat map-->
         <scene sceneID="H9J-Zx-wy2">
             <objects>
                 <viewController id="4Tb-dm-IU2" customClass="FullMapViewViewController" customModule="Covid19App" customModuleProvider="target" sceneMemberID="viewController">
@@ -1301,7 +1309,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LlO-Dn-01f"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jj3-ov-WQb"/>
+                    <navigationItem key="navigationItem" title="Heat map" id="jj3-ov-WQb"/>
                     <connections>
                         <outlet property="mapView" destination="td2-22-JVa" id="Kci-bu-01v"/>
                     </connections>

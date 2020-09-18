@@ -303,7 +303,7 @@ class FirebaseOP {
                     guard let innerData = data.value as? [String:Any] else {
                         continue
                     }
-                    surveyData.append(SurveyDataModel(date: innerData["date"] as! String, name: innerData["name"] as! String, nic: innerData["nic"] as! String, profileURL: innerData["profileURL"] as! String, role: innerData["role"] as! String, score: innerData["score"] as! Int))
+                    surveyData.append(SurveyDataModel(dateString: nil, date: innerData["date"] as! String, name: innerData["name"] as! String, nic: innerData["nic"] as! String, profileURL: innerData["profileURL"] as! String, role: innerData["role"] as! String, score: innerData["score"] as! Int))
                 }
                 self.delegate?.loadSurveyData(data: surveyData)
             } else {

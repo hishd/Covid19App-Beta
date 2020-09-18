@@ -36,14 +36,22 @@ class ViewSurveyResultsViewController: UIViewController {
     }
     
     @IBAction func selectedFilterChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
+        if sender.selectedSegmentIndex == 1 {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            for data in surveyData {
-                
+            for i in (0..<surveyData.count){
+                surveyData[i].dateString = formatter.date(from: surveyData[i].date)
             }
-        } else {
             
+            surveyData = surveyData.sorted(by: {
+                $0.date.compare($1.date) == .orderedDescending
+            })
+            tblData.reloadData()
+        } else {
+            surveyData =  surveyData.sorted(by: {
+                $0.score > $1.score
+            })
+            tblData.reloadData()
         }
     }
 
@@ -59,6 +67,14 @@ extension ViewSurveyResultsViewController : UITableViewDataSource {
         cell.configureCell(data: surveyData[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
+        UIView.animate(withDuration: 1, delay: 0.05 * Double(indexPath.row), usingSpringWithDamping: 0.4, initialSpringVelocity: 0.1,
+                       options: .curveEaseIn, animations: {
+                        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
+        })
+    }
 }
 
 extension ViewSurveyResultsViewController : UITableViewDelegate {
@@ -73,6 +89,9 @@ extension ViewSurveyResultsViewController : FirebaseActions {
         progressHUD.dismissProgressHUD()
         surveyData.removeAll()
         surveyData.append(contentsOf: data)
+        surveyData =  surveyData.sorted(by: {
+            $0.score > $1.score
+        })
         tblData.reloadData()
     }
     func loadSurveyDataFailed(error: String) {
