@@ -8,6 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatBottomBarViewController" customModule="Covid19App" customModuleProvider="target">
             <connections>
+                <outlet property="txtInfected" destination="vUq-vG-fkQ" id="VOt-9t-CEp"/>
+                <outlet property="txtNonInfected" destination="2LM-oL-peG" id="qnS-2f-PUY"/>
+                <outlet property="txtTotal" destination="iRm-ME-WYA" id="aHr-2f-3h2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewNonInfected" destination="VGY-de-Hgz" id="1FD-34-zN1"/>
                 <outlet property="viewRoot" destination="RKU-yJ-wTT" id="dTy-hE-WjV"/>

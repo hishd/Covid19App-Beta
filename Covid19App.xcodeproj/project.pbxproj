@@ -29,6 +29,7 @@
 		EF8400FE251381EE0075226B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8400FD251381EE0075226B /* SplashViewController.swift */; };
 		EF8E9A5C2514703500C9C505 /* TemperatureDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E9A5B2514703500C9C505 /* TemperatureDataModel.swift */; };
 		EF8E9A5E2514852B00C9C505 /* CustomMapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E9A5D2514852B00C9C505 /* CustomMapMarker.swift */; };
+		EF8E9A602514B7AE00C9C505 /* FullMapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E9A5F2514B7AE00C9C505 /* FullMapViewViewController.swift */; };
 		EFAB888B2511FD5F00675118 /* FIrebaseOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB888A2511FD5F00675118 /* FIrebaseOP.swift */; };
 		EFADB9B1250F99D90045ED52 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */; };
 		EFADB9B8250FA7BB0045ED52 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B7250FA7BB0045ED52 /* RoundImageView.swift */; };
@@ -68,6 +69,7 @@
 		EF8400FD251381EE0075226B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = Covid19App/Constraints/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
 		EF8E9A5B2514703500C9C505 /* TemperatureDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureDataModel.swift; sourceTree = "<group>"; };
 		EF8E9A5D2514852B00C9C505 /* CustomMapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapMarker.swift; sourceTree = "<group>"; };
+		EF8E9A5F2514B7AE00C9C505 /* FullMapViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullMapViewViewController.swift; path = Covid19App/Views/FullMapViewViewController.swift; sourceTree = SOURCE_ROOT; };
 		EFAB888A2511FD5F00675118 /* FIrebaseOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseOP.swift; sourceTree = "<group>"; };
 		EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EFADB9B7250FA7BB0045ED52 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		EFBF963A250FED3B0019B78B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EF8E9A5F2514B7AE00C9C505 /* FullMapViewViewController.swift */,
 				EF8400FD251381EE0075226B /* SplashViewController.swift */,
 				EF78185C250F433900ED7CA2 /* LoginViewContoller.swift */,
 				EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */,
@@ -345,6 +348,7 @@
 				EFADB9B8250FA7BB0045ED52 /* RoundImageView.swift in Sources */,
 				EFADB9BC250FCB5A0045ED52 /* KeyboadToorbar.swift in Sources */,
 				EF7B9DBC251336A80064073C /* UserModel.swift in Sources */,
+				EF8E9A602514B7AE00C9C505 /* FullMapViewViewController.swift in Sources */,
 				EF56F157251151E500795F91 /* NewsCollectionViewCell.swift in Sources */,
 				EF78185D250F433900ED7CA2 /* LoginViewContoller.swift in Sources */,
 				EFAB888B2511FD5F00675118 /* FIrebaseOP.swift in Sources */,

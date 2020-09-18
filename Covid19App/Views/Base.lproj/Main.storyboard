@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcT-t4-4b9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2030" y="-603"/>
+            <point key="canvasLocation" x="1991" y="-894"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="6EG-xx-Z9d">
@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOL-XF-M4H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136.8" y="-136.28185907046478"/>
+            <point key="canvasLocation" x="471" y="-137"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="JYm-Zm-YGV">
@@ -535,7 +535,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ra8-rn-Xg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="796"/>
+            <point key="canvasLocation" x="1994" y="238"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Ggo-7p-YbO">
@@ -726,7 +726,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytm-ml-ZTw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2247" y="882"/>
+            <point key="canvasLocation" x="2610" y="961"/>
         </scene>
         <!--Update-->
         <scene sceneID="UDs-pm-vS1">
@@ -849,7 +849,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBp-os-PTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3361" y="881"/>
+            <point key="canvasLocation" x="4098" y="961"/>
         </scene>
         <!--Check Sympthoms View Controller-->
         <scene sceneID="fpp-TG-UzY">
@@ -1148,27 +1148,44 @@
                                 <rect key="frame" x="16" y="284" width="343" height="445"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpL-qw-fYp">
-                                <rect key="frame" x="319" y="284" width="40" height="40"/>
+                                <rect key="frame" x="25" y="294" width="25" height="25"/>
+                                <color key="backgroundColor" red="0.42416077246283046" green="0.44193415485457194" blue="0.45421557741116758" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Hyo-dm-vDe"/>
-                                    <constraint firstAttribute="width" constant="40" id="pkw-uU-ojh"/>
+                                    <constraint firstAttribute="width" constant="25" id="dJh-v6-PXr"/>
+                                    <constraint firstAttribute="height" constant="25" id="sn2-cr-laV"/>
                                 </constraints>
+                                <color key="tintColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="location" catalog="system"/>
                                 <connections>
                                     <action selector="locateClicked:" destination="XEh-ET-T5R" eventType="touchUpInside" id="C15-Rs-YLk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-jX-xqF">
+                                <rect key="frame" x="25" y="327" width="25" height="25"/>
+                                <color key="backgroundColor" red="0.43241919584949923" green="0.45053862654729199" blue="0.46305916878172593" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="bVh-Rg-RFU"/>
+                                    <constraint firstAttribute="height" constant="25" id="sa1-Wk-36U"/>
+                                </constraints>
+                                <color key="tintColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="magnifyingglass.circle.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="4Tb-dm-IU2" kind="show" id="7TW-YZ-am0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="BjM-jX-xqF" firstAttribute="top" secondItem="EpL-qw-fYp" secondAttribute="bottom" constant="8" id="6La-1W-FNb"/>
                             <constraint firstItem="Y9b-4F-vyk" firstAttribute="top" secondItem="odW-4z-iIW" secondAttribute="bottom" constant="10" id="6un-hr-c1F"/>
-                            <constraint firstItem="yvS-Xa-fQB" firstAttribute="trailing" secondItem="EpL-qw-fYp" secondAttribute="trailing" constant="16" id="CQY-iY-u46"/>
                             <constraint firstItem="odW-4z-iIW" firstAttribute="top" secondItem="MEh-ue-Bds" secondAttribute="bottom" id="Cji-JD-7aV"/>
+                            <constraint firstItem="EpL-qw-fYp" firstAttribute="top" secondItem="odW-4z-iIW" secondAttribute="bottom" constant="20" id="GlF-ca-xaK"/>
                             <constraint firstItem="MEh-ue-Bds" firstAttribute="centerX" secondItem="fKQ-69-j4e" secondAttribute="centerX" id="JIP-mP-TTF"/>
-                            <constraint firstItem="EpL-qw-fYp" firstAttribute="top" secondItem="odW-4z-iIW" secondAttribute="bottom" constant="10" id="MYk-nH-7wR"/>
                             <constraint firstItem="odW-4z-iIW" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" id="Ndm-Wq-eqd"/>
                             <constraint firstItem="Y9b-4F-vyk" firstAttribute="bottom" secondItem="yvS-Xa-fQB" secondAttribute="bottom" id="SGy-EF-PXl"/>
                             <constraint firstItem="yvS-Xa-fQB" firstAttribute="trailing" secondItem="Y9b-4F-vyk" secondAttribute="trailing" constant="16" id="Z6s-dh-sM2"/>
+                            <constraint firstItem="EpL-qw-fYp" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" constant="25" id="ZbH-GI-SBA"/>
+                            <constraint firstItem="BjM-jX-xqF" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" constant="25" id="cYb-CA-GIq"/>
                             <constraint firstItem="Y9b-4F-vyk" firstAttribute="leading" secondItem="yvS-Xa-fQB" secondAttribute="leading" constant="16" id="dWA-kQ-feV"/>
                             <constraint firstItem="MEh-ue-Bds" firstAttribute="top" secondItem="yvS-Xa-fQB" secondAttribute="top" constant="15" id="nGc-Oa-ohK"/>
                             <constraint firstItem="odW-4z-iIW" firstAttribute="trailing" secondItem="yvS-Xa-fQB" secondAttribute="trailing" id="wxP-JJ-G0H"/>
@@ -1183,7 +1200,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wat-bs-CDj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4432.8000000000002" y="-129.08545727136433"/>
+            <point key="canvasLocation" x="4430" y="-137"/>
+        </scene>
+        <!--Full Map View View Controller-->
+        <scene sceneID="H9J-Zx-wy2">
+            <objects>
+                <viewController id="4Tb-dm-IU2" customClass="FullMapViewViewController" customModule="Covid19App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vvq-44-QBQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="td2-22-JVa">
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rp-JQ-acY">
+                                <rect key="frame" x="16" y="108" width="25" height="25"/>
+                                <color key="backgroundColor" red="0.42416077246283046" green="0.44193415485457194" blue="0.45421557741116758" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Dig-Au-Anv"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="JfC-ni-u8J"/>
+                                    <constraint firstAttribute="height" constant="25" id="Vkg-a4-Bfe"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="WKF-be-ZMX"/>
+                                </constraints>
+                                <color key="tintColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="location" catalog="system"/>
+                                <connections>
+                                    <action selector="locateClicked:" destination="4Tb-dm-IU2" eventType="touchUpInside" id="9Td-d5-nQd"/>
+                                    <action selector="locateClicked:" destination="XEh-ET-T5R" eventType="touchUpInside" id="uHe-pQ-5LC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="td2-22-JVa" secondAttribute="bottom" id="0os-XH-rZb"/>
+                            <constraint firstItem="8rp-JQ-acY" firstAttribute="leading" secondItem="LlO-Dn-01f" secondAttribute="leading" constant="16" id="AlW-Ym-0H8"/>
+                            <constraint firstItem="td2-22-JVa" firstAttribute="leading" secondItem="LlO-Dn-01f" secondAttribute="leading" id="J7O-8a-dnH"/>
+                            <constraint firstItem="8rp-JQ-acY" firstAttribute="top" secondItem="LlO-Dn-01f" secondAttribute="top" constant="20" id="m57-cB-4hX"/>
+                            <constraint firstItem="td2-22-JVa" firstAttribute="top" secondItem="LlO-Dn-01f" secondAttribute="top" id="z7g-9J-qPv"/>
+                            <constraint firstItem="td2-22-JVa" firstAttribute="trailing" secondItem="LlO-Dn-01f" secondAttribute="trailing" id="za3-G7-AAc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LlO-Dn-01f"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jj3-ov-WQb"/>
+                    <connections>
+                        <outlet property="mapView" destination="td2-22-JVa" id="Kci-bu-01v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z7k-Jt-mCD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5338" y="-137"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Rr2-uz-LNj">
@@ -1205,7 +1270,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zs-U9-s5f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2975" y="-129"/>
+            <point key="canvasLocation" x="3241" y="-137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hRh-fJ-b82">
@@ -1223,11 +1288,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbr-Pv-CZ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197.59999999999999" y="-136.28185907046478"/>
+            <point key="canvasLocation" x="-666" y="-137"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1L2-EQ-EIG"/>
+        <segue reference="y0n-J5-G7u"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="check symptoms" width="170.66667175292969" height="170.66667175292969"/>
@@ -1244,6 +1309,7 @@
         <image name="lock.circle" catalog="system" width="128" height="121"/>
         <image name="lock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>

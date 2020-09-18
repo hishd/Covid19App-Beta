@@ -17,9 +17,16 @@ class StatBottomBarViewController: UIViewController {
     @IBOutlet weak var viewNonInfected: UIView!
     @IBOutlet weak var viewRoot: UIView!
     @IBOutlet weak var viewRootSecond: UIView!
+    @IBOutlet weak var txtInfected: UILabel!
+    @IBOutlet weak var txtTotal: UILabel!
+    @IBOutlet weak var txtNonInfected: UILabel!
+    
+    var home = HomeViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        home.delegate = self
     
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(panGesture))
         view.addGestureRecognizer(gesture)
@@ -103,5 +110,15 @@ extension StatBottomBarViewController{
     
     private enum Constant {
         static let fullViewYPosition: CGFloat = (UIScreen.main.bounds.height / 2) - 150
+    }
+}
+
+extension StatBottomBarViewController : UserStatActions {
+    func onStatLoadedorRefreshed(infected: Int, nonInfected: Int) {
+        UIView.animate(withDuration: 0.7){
+            self.txtTotal.text = String(infected + nonInfected)
+            self.txtInfected.text = String(infected)
+            self.txtNonInfected.text = String(nonInfected)
+        }
     }
 }

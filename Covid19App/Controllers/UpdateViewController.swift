@@ -33,6 +33,10 @@ class UpdateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let lastTemp : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.lastTemp){
+            currentTemp = Double(lastTemp)!
+        }
+                
         viewTempPicker.clipsToBounds = true
         viewTempPicker.layer.cornerRadius = 10
         viewCheckForSympthoms.clipsToBounds = true
@@ -228,6 +232,7 @@ extension UpdateViewController : FirebaseActions {
     
     func isTempratureDataAdded() {
         self.progressHUD.dismissProgressHUD()
+        AppUserDefaults.setUserDefault(data: String(currentTemp), key: UserInfoStorage.lastTemp)
 //        self.present(AppPopUpDialogs.displayAlert(title: "Data added", message: "Latest temperature data updated successfully"), animated: true)
     }
     

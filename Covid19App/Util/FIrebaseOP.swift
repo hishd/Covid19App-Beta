@@ -291,6 +291,8 @@ class FirebaseOP {
         })
     }
     
+    
+    
     //MARK: - Class methods
     
     func getDBReference() -> DatabaseReference{
@@ -381,6 +383,7 @@ protocol FirebaseActions {
     func onNewsDataLoaded(news : [String])
     
     func onTempDataLoaded(tempData : [TemperatureDataModel])
+
 }
 
 extension FirebaseActions {

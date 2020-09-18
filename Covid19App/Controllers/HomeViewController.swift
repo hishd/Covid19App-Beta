@@ -27,6 +27,11 @@ class HomeViewController: UIViewController {
     var news : [String] = []
     var tempData : [TemperatureDataModel] = []
     
+    var delegate : UserStatActions?
+    
+    var infected: Int = 0
+    var nonInfected: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -48,10 +53,14 @@ class HomeViewController: UIViewController {
         
         myLocation = CustomMapMarker(coor: CLLocationCoordinate2D(latitude: pickedLattitude, longitude: pickedLonglitude))
     }
+
+}
+
+extension HomeViewController {
     
     func addBottonStatView() {
         let bottomSheetVC = StatBottomBarViewController()
-        
+        self.delegate = bottomSheetVC
         self.addChild(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)
         bottomSheetVC.didMove(toParent: self)
@@ -62,22 +71,38 @@ class HomeViewController: UIViewController {
     }
     
     func refreshMapData(){
-        for data in tempData{
-            
-            if data.uid == AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID) {
-                self.mapKit.addAnnotation(myLocation)
-                continue
+        infected = 0
+        nonInfected = 0
+
+        DispatchQueue.main.async {
+            for data in self.tempData{
+                
+                if data.temperature < 35 {
+                    self.nonInfected+=1
+                } else {
+                    self.infected+=1
+                }
+                
+                if data.uid == AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID) {
+                    self.mapKit.addAnnotation(self.myLocation)
+                    continue
+                }
+                
+                let coord = CLLocationCoordinate2D(latitude: data.lat, longitude: data.lon)
+                let pin = CustomMapMarker(coor: coord)
+                
+                if data.temperature < 35 {
+                    pin.title = "NORMAL"
+                } else {
+                    pin.title = "SEVERE"
+                }
+                
+                self.mapKit.addAnnotation(pin)
             }
             
-            let coord = CLLocationCoordinate2D(latitude: data.lat, longitude: data.lon)
-            let pin = CustomMapMarker(coor: coord)
-            if data.temperature < 35 {
-                pin.title = "NORMAL"
-            } else {
-                pin.title = "SEVERE"
-            }
-            self.mapKit.addAnnotation(pin)
+            self.delegate?.onStatLoadedorRefreshed(infected: self.infected, nonInfected: self.nonInfected)
         }
+        
     }
     
     func registerNib() {
@@ -87,7 +112,7 @@ class HomeViewController: UIViewController {
             flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
         }
     }
-    
+
     
     @IBAction func locateClicked(_ sender: UIButton) {
         if pickedLattitude == 0 || pickedLonglitude == 0 {
@@ -102,6 +127,15 @@ class HomeViewController: UIViewController {
             mapKit.setRegion(viewRegion, animated: true)
         }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        locationManager.stopUpdatingLocation()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        locationManager.startUpdatingLocation()
+    }
+    
 }
 
 extension HomeViewController : UICollectionViewDataSource {
@@ -207,4 +241,8 @@ extension HomeViewController : MKMapViewDelegate {
         annotationView.canShowCallout = true
         return annotationView
     }
+}
+
+protocol UserStatActions {
+    func onStatLoadedorRefreshed(infected: Int, nonInfected: Int)
 }

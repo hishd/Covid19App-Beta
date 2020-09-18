@@ -23,6 +23,7 @@ struct UserInfoStorage {
     static var userType = "USER_TYPE"
     static var userLogged = "USER_LOGGED"
     static var proPicURL = "PROFILE_PICTURE_URL"
+    static var lastTemp = "LAST_TEMP"
 }
 
 struct UserTypes {
