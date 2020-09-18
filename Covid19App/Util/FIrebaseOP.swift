@@ -291,6 +291,27 @@ class FirebaseOP {
         })
     }
     
+    func fetchSurveyData(){
+        var surveyData : [SurveyDataModel] = []
+        let ref = self.getDBReference()
+        
+        ref.child("userData").observeSingleEvent(of: .value, with: {
+            snapshot in
+            surveyData.removeAll()
+            if let tempDIct = snapshot.value as? [String:Any] {
+                for data in tempDIct {
+                    guard let innerData = data.value as? [String:Any] else {
+                        continue
+                    }
+                    surveyData.append(SurveyDataModel(date: innerData["date"] as! String, name: innerData["name"] as! String, nic: innerData["nic"] as! String, profileURL: innerData["profileURL"] as! String, role: innerData["role"] as! String, score: innerData["score"] as! Int))
+                }
+                self.delegate?.loadSurveyData(data: surveyData)
+            } else {
+                self.delegate?.loadSurveyDataFailed(error: "Error fetching survey data")
+            }
+        })
+    }
+    
     
     
     //MARK: - Class methods
@@ -383,6 +404,9 @@ protocol FirebaseActions {
     func onNewsDataLoaded(news : [String])
     
     func onTempDataLoaded(tempData : [TemperatureDataModel])
+    
+    func loadSurveyData(data : [SurveyDataModel])
+    func loadSurveyDataFailed(error: String)
 
 }
 
@@ -426,4 +450,8 @@ extension FirebaseActions {
     func onNewsDataLoaded(news : [String]) {}
     
     func onTempDataLoaded(tempData : [TemperatureDataModel]) {}
+    
+    func loadSurveyData(data : [SurveyDataModel]) {}
+    
+    func loadSurveyDataFailed(error: String) {}
 }

@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var txtRole: UILabel!
     @IBOutlet weak var imgProfilePic: UIImageView!
     @IBOutlet weak var btnLogout: UIButton!
+    @IBOutlet weak var btnViewSurveyResults: UIButton!
     
     var imagePicker: ImagePicker!
     
@@ -31,6 +32,12 @@ class SettingsViewController: UIViewController {
         
         btnLogout.generateRoundCorners(radius: 6)
         
+        if let role : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userType){
+            if role == UserTypes.USER_TYPE_STUDENT{
+                btnViewSurveyResults.isHidden = true
+            }
+        }
+        
         firebaseOP.delegate = self
         self.progressHUD = ProgressHUD(view: view)
         
@@ -44,10 +51,14 @@ class SettingsViewController: UIViewController {
         
         loadUserData()
     }
-
 }
 
 extension SettingsViewController {
+    
+    @IBAction func viewSurveyClicked(_ sender: UIButton) {
+        
+        
+       }
     
     @IBAction func chaneNameClicked(_ sender: UIButton) {
         let alert = AppPopUpDialogs.displayUserDataUpdatePopup(title: "Update Name", message: "Enter new name to update", type: "NAME")

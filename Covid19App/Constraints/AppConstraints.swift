@@ -30,3 +30,8 @@ struct UserTypes {
     static var USER_TYPE_STUDENT = "STUDENT"
     static var USER_TYPE_STAFF = "STAFF"
 }
+
+struct ResourceIdentifiers {
+    static let cellIdentifier = "ReusableCell"
+    static let cellNibName = "SurveyCell"
+}

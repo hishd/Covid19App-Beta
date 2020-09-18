@@ -658,7 +658,8 @@
                                             <color key="titleColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="viewSurveyResultsClicked:" destination="m2L-Kh-iP1" eventType="touchUpInside" id="mz4-oC-w6b"/>
+                                            <action selector="viewSurveyClicked:" destination="m2L-Kh-iP1" eventType="touchUpInside" id="b4l-P0-U2H"/>
+                                            <segue destination="qUx-Bc-koL" kind="show" id="Q1M-Nc-mly"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgW-jf-puB">
@@ -718,6 +719,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="wrench" catalog="system" selectedImage="wrench.fill" id="8kY-64-I9g"/>
                     <connections>
                         <outlet property="btnLogout" destination="JgW-jf-puB" id="Wi5-6g-MK2"/>
+                        <outlet property="btnViewSurveyResults" destination="yrI-1i-jY1" id="25p-Yy-V4A"/>
                         <outlet property="imgProfilePic" destination="oRC-eU-yL7" id="DA4-xe-Dbp"/>
                         <outlet property="txtEmail" destination="5Yy-1c-XCf" id="ZQU-v3-Hyc"/>
                         <outlet property="txtRole" destination="uLX-IW-fse" id="4Mb-KL-VN4"/>
@@ -850,6 +852,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBp-os-PTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4098" y="961"/>
+        </scene>
+        <!--View Survey Results View Controller-->
+        <scene sceneID="gP5-pv-9YW">
+            <objects>
+                <viewController id="qUx-Bc-koL" customClass="ViewSurveyResultsViewController" customModule="Covid19App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zs9-2K-kaa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Oe7-65-1No">
+                                <rect key="frame" x="58" y="98" width="259.33333333333331" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter by :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF5-is-lhG">
+                                        <rect key="frame" x="0.0" y="0.0" width="70.333333333333329" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.46662515399999999" green="0.46671652790000001" blue="0.99987739320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2D5-hu-nnZ">
+                                        <rect key="frame" x="78.333333333333343" y="0.0" width="181.00000000000003" height="32"/>
+                                        <segments>
+                                            <segment title="Latest Data"/>
+                                            <segment title="severity"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="selectedFilterChanged:" destination="qUx-Bc-koL" eventType="valueChanged" id="niX-ry-iaU"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bfF-0W-AZo">
+                                <rect key="frame" x="0.0" y="139" width="375" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qUx-Bc-koL" id="8aX-ed-8NO"/>
+                                    <outlet property="delegate" destination="qUx-Bc-koL" id="42G-V5-Wqr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bfF-0W-AZo" firstAttribute="trailing" secondItem="L3M-gf-hk3" secondAttribute="trailing" id="1ga-rD-aP3"/>
+                            <constraint firstItem="bfF-0W-AZo" firstAttribute="leading" secondItem="L3M-gf-hk3" secondAttribute="leading" id="9xz-4t-4rh"/>
+                            <constraint firstAttribute="bottom" secondItem="bfF-0W-AZo" secondAttribute="bottom" id="JnJ-9x-3sz"/>
+                            <constraint firstItem="Oe7-65-1No" firstAttribute="centerX" secondItem="Zs9-2K-kaa" secondAttribute="centerX" id="bxg-QR-d2b"/>
+                            <constraint firstItem="bfF-0W-AZo" firstAttribute="top" secondItem="Oe7-65-1No" secondAttribute="bottom" constant="10" id="dXS-tb-i9X"/>
+                            <constraint firstItem="Oe7-65-1No" firstAttribute="top" secondItem="L3M-gf-hk3" secondAttribute="top" constant="10" id="xbf-ev-sIB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L3M-gf-hk3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hxn-XH-nU6"/>
+                    <connections>
+                        <outlet property="tblData" destination="bfF-0W-AZo" id="AV3-jn-wxS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXd-Jy-XbV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2608.8000000000002" y="1764.5320197044337"/>
         </scene>
         <!--Check Sympthoms View Controller-->
         <scene sceneID="fpp-TG-UzY">
@@ -1101,7 +1161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jh8-Cx-iY2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3361" y="1777"/>
+            <point key="canvasLocation" x="4095" y="1765"/>
         </scene>
         <!--Home-->
         <scene sceneID="lmT-ji-9PV">
