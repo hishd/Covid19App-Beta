@@ -53,7 +53,9 @@ class UpdateViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 200
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        DispatchQueue.main.async {
+            self.locationManager.startUpdatingLocation()
+        }
         
     }
     

@@ -33,6 +33,7 @@ class CheckSympthomsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.createTransparentNavBar()
         viewContainerCough.clipsToBounds = true
         viewContainerFever.clipsToBounds = true
         viewContainerSoreTroath.clipsToBounds = true

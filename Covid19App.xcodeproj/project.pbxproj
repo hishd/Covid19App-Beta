@@ -27,6 +27,8 @@
 		EF7B9DBC251336A80064073C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B9DBB251336A80064073C /* UserModel.swift */; };
 		EF7F2CB22511ED840051B0B7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7F2CB12511ED840051B0B7 /* ImagePicker.swift */; };
 		EF8400FE251381EE0075226B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8400FD251381EE0075226B /* SplashViewController.swift */; };
+		EF8E9A5C2514703500C9C505 /* TemperatureDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E9A5B2514703500C9C505 /* TemperatureDataModel.swift */; };
+		EF8E9A5E2514852B00C9C505 /* CustomMapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E9A5D2514852B00C9C505 /* CustomMapMarker.swift */; };
 		EFAB888B2511FD5F00675118 /* FIrebaseOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB888A2511FD5F00675118 /* FIrebaseOP.swift */; };
 		EFADB9B1250F99D90045ED52 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */; };
 		EFADB9B8250FA7BB0045ED52 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADB9B7250FA7BB0045ED52 /* RoundImageView.swift */; };
@@ -64,6 +66,8 @@
 		EF7B9DBB251336A80064073C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		EF7F2CB12511ED840051B0B7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EF8400FD251381EE0075226B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = Covid19App/Constraints/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
+		EF8E9A5B2514703500C9C505 /* TemperatureDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureDataModel.swift; sourceTree = "<group>"; };
+		EF8E9A5D2514852B00C9C505 /* CustomMapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapMarker.swift; sourceTree = "<group>"; };
 		EFAB888A2511FD5F00675118 /* FIrebaseOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseOP.swift; sourceTree = "<group>"; };
 		EFADB9B0250F99D90045ED52 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EFADB9B7250FA7BB0045ED52 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				EFADB9BB250FCB5A0045ED52 /* KeyboadToorbar.swift */,
 				EF275D792510ACD300112668 /* RoundCornerButton.swift */,
 				EF275D7D2510EB8400112668 /* NavBar.swift */,
+				EF8E9A5D2514852B00C9C505 /* CustomMapMarker.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				EF7B9DBB251336A80064073C /* UserModel.swift */,
+				EF8E9A5B2514703500C9C505 /* TemperatureDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFBF963E250FEDD80019B78B /* UpdateViewController.swift in Sources */,
+				EF8E9A5E2514852B00C9C505 /* CustomMapMarker.swift in Sources */,
 				EF275D7E2510EB8400112668 /* NavBar.swift in Sources */,
 				EF606A072511DF0700D5DCBF /* FieldValidator.swift in Sources */,
 				EF275D782510A58500112668 /* AppPopUpDialogs.swift in Sources */,
@@ -350,6 +357,7 @@
 				EF7B9DBA251333930064073C /* ProgressHUD.swift in Sources */,
 				EF78185B250F433900ED7CA2 /* SceneDelegate.swift in Sources */,
 				EFADB9BA250FC5810045ED52 /* TransparentNavController.swift in Sources */,
+				EF8E9A5C2514703500C9C505 /* TemperatureDataModel.swift in Sources */,
 				EF7F2CB22511ED840051B0B7 /* ImagePicker.swift in Sources */,
 				EFADB9B1250F99D90045ED52 /* RegisterViewController.swift in Sources */,
 				EFBF9640250FEE170019B78B /* SettingsViewController.swift in Sources */,

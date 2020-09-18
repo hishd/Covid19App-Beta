@@ -76,7 +76,7 @@ class FirebaseOP {
     
     func storeSympthomsData(score: Int) {
         let ref = getDBReference()
-        if let uid : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID), let name : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userName), let nic : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userNIC), let role : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userType) {
+        if let uid : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID), let name : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userName), let nic : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userNIC), let role : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userType), let proURL : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.proPicURL) {
             
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -86,7 +86,8 @@ class FirebaseOP {
                 "name" : name,
                 "nic" : nic,
                 "role" : role,
-                "date" : formatter.string(from: Date())
+                "date" : formatter.string(from: Date()),
+                "profileURL" : proURL
                 ] as [String : Any]
             ref.child("userData").child(uid).setValue(userdata) {
                 (error:Error?, ref:DatabaseReference) in
@@ -193,11 +194,18 @@ class FirebaseOP {
     
     func addTempData(uid: String, temperature: Double, lat: Double, lon: Double) {
         let ref = self.getDBReference()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let uid : String = AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID) ?? ""
+        
         let data = [
+            "uid": uid,
             "temperature" : temperature,
             "lat" : lat,
-            "lon" : lon
-        ]
+            "lon" : lon,
+            "lastUpdate" : formatter.string(from: Date())
+        ] as [String : Any]
         ref.child("temperatureData").child(uid).setValue(data) {
             (error:Error?, ref:DatabaseReference) in
             if let error = error {
@@ -221,6 +229,7 @@ class FirebaseOP {
                     news.append(data)
                 }
                 print(news)
+                self.delegate?.onNewsDataLoaded(news: news)
             }
             
         })
@@ -237,9 +246,49 @@ class FirebaseOP {
                     news.append(innerDict["notification"] as! String)
                 }
                 print(news)
+                self.delegate?.onNewsDataLoaded(news: news)
             }
         })
 //        self.delegate?.onNewsDataLoaded(news: news)
+    }
+    
+    func fetchTemperatureData(){
+        var tempData : [TemperatureDataModel] = []
+        let ref = self.getDBReference()
+        
+        ref.child("temperatureData").observeSingleEvent(of: .value, with: {
+            (snapshot) in
+//                print(snapshot)
+            tempData.removeAll()
+            if let tempDict = snapshot.value as? [String: Any] {
+                for data in tempDict {
+//                        print(data)
+                    guard let innerData = data.value as? [String : Any] else {
+                        continue
+                    }
+                    tempData.append(TemperatureDataModel(uid : innerData["uid"] as! String ,lastUpdate: innerData["lastUpdate"] as! String, lat: innerData["lat"] as! Double, lon: innerData["lon"] as! Double, temperature: innerData["temperature"] as! Double))
+                }
+                self.delegate?.onTempDataLoaded(tempData: tempData)
+            }
+        })
+        
+        ref.child("temperatureData").observe(.childChanged, with: { snapshot in
+            ref.child("temperatureData").observeSingleEvent(of: .value, with: {
+                (snapshot) in
+//                print(snapshot)
+                tempData.removeAll()
+                if let tempDict = snapshot.value as? [String: Any] {
+                    for data in tempDict {
+//                        print(data)
+                        guard let innerData = data.value as? [String : Any] else {
+                            continue
+                        }
+                        tempData.append(TemperatureDataModel(uid : innerData["uid"] as! String ,lastUpdate: innerData["lastUpdate"] as! String, lat: innerData["lat"] as! Double, lon: innerData["lon"] as! Double, temperature: innerData["temperature"] as! Double))
+                    }
+                    self.delegate?.onTempDataLoaded(tempData: tempData)
+                }
+            })
+        })
     }
     
     //MARK: - Class methods
@@ -330,6 +379,8 @@ protocol FirebaseActions {
     func isTempratureDataAddingFailed(error: Error)
     
     func onNewsDataLoaded(news : [String])
+    
+    func onTempDataLoaded(tempData : [TemperatureDataModel])
 }
 
 extension FirebaseActions {
@@ -370,4 +421,6 @@ extension FirebaseActions {
     func isTempratureDataAddingFailed(error: Error) {}
     
     func onNewsDataLoaded(news : [String]) {}
+    
+    func onTempDataLoaded(tempData : [TemperatureDataModel]) {}
 }
