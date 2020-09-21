@@ -26,7 +26,7 @@ class LoginViewContoller: UIViewController {
         
         txtEmail.delegate = self
         txtPassword.delegate = self
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         btnSignIn.generateRoundCorners(radius: 5)
         
         progressHUD = ProgressHUD(view: view)

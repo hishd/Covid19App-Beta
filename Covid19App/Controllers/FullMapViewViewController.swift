@@ -12,6 +12,7 @@ import MapKit
 class FullMapViewViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var viewExposedArea: UIView!
     
     let firebaseOP = FirebaseOP()
     
@@ -29,7 +30,7 @@ class FullMapViewViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
+        viewExposedArea.isHidden = true
         firebaseOP.delegate = self
         firebaseOP.fetchTemperatureData()
         
@@ -80,6 +81,13 @@ extension FullMapViewViewController {
     
     func refreshMapData(){
         DispatchQueue.main.async {
+            
+            UIView.animate(withDuration: 0.7){
+                self.viewExposedArea.isHidden = true
+            }
+            
+            let currentCoord = CLLocation(latitude: self.pickedLattitude, longitude: self.pickedLonglitude)
+            
             for data in self.tempData{
                 
                 if data.uid == AppUserDefaults.getUserDefault(key: UserInfoStorage.userUID) {
@@ -87,13 +95,27 @@ extension FullMapViewViewController {
                     continue
                 }
                 
-                let coord = CLLocationCoordinate2D(latitude: data.lat, longitude: data.lon)
-                let pin = CustomMapMarker(coor: coord)
+                let coord = CLLocation(latitude: data.lat, longitude: data.lon)
+                let pin = CustomMapMarker(coor: coord.coordinate)
                 
                 if data.temperature < 35 {
                     pin.title = "NORMAL"
                 } else {
                     pin.title = "SEVERE"
+                    if currentCoord.distance(from: coord) < 1000 {
+                        print(currentCoord.distance(from: coord))
+                        UIView.animate(withDuration: 0.7){
+                            self.viewExposedArea.isHidden = false
+                        }
+                    } else {
+                        print("Not in range")
+                        print(currentCoord)
+                    }
+                }
+                
+                
+                UIView.animate(withDuration: 0.7){
+                    
                 }
                 
                 self.mapView.addAnnotation(pin)
@@ -130,6 +152,8 @@ extension FullMapViewViewController : CLLocationManagerDelegate {
             pickedLonglitude = location.coordinate.longitude
             let viewRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
             mapView.setRegion(viewRegion, animated: true)
+            
+            refreshMapData()
         }
     }
     

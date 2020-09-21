@@ -108,6 +108,10 @@ extension RegisterViewController {
         self.imagePicker.present(from: sender)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
 }
 
 extension RegisterViewController : UITextFieldDelegate {
