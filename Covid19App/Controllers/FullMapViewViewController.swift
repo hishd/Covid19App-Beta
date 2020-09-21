@@ -50,8 +50,12 @@ class FullMapViewViewController: UIViewController {
 
 extension FullMapViewViewController {
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
         locationManager.stopUpdatingLocation()
     }
     
